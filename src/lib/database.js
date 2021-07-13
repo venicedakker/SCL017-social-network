@@ -13,5 +13,4 @@ function start(){
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 }
-
 export {start};
