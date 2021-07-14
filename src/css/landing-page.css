@@ -59,7 +59,7 @@ width: 30%;
     left: 0.1%
 }
 
-#loginGoogle, #registerGoogle{
+#login, #register{
     height: 52px;
     border-radius: 10px;
     border-color: var(--pink);
@@ -68,13 +68,13 @@ width: 30%;
     font-weight: 800;
 }
 
-#loginGoogle{
+#login{
     color:var(--pink);
     background-color: var(--white);
 }
 
 
-#registerGoogle{
+#register{
     color:var(--white);
     background-color:var(--pink);
 }
