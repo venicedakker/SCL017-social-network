@@ -1,13 +1,11 @@
-
-
-
 //Observador de Firebase que verifica si estás logeado y esconde el register o si no estás logeado, solo te muestra el register. 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         console.log("user")
         botones.innerHTML= `
         <button href="#" type="submit" id="loginGoogle">LOGIN</button>
-        `  
+        `
+        login()  
     } else {
         console.log("no existe usuario")
         botones.innerHTML=`
