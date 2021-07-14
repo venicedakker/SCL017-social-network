@@ -27,17 +27,31 @@ body {
 nav{
     position: fixed;
     top: 73%;
-    left: 3%;
+    left: 5%;
     display: grid;
     row-gap: 1rem;
-    width: 352px;
+    width: 90%
 }
-
 
 .title{
     background-color: var(--yellow);
-    position: relative;
-    padding: 10%;      
+    position: relative;    
+}
+.title-students{
+padding: 8%;
+}
+
+.logo{
+width: 30%;
+
+}
+.students {
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.title-two{
+    text-align: center;
 }
 
 .img-background{
