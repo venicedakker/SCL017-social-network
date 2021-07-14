@@ -5,6 +5,8 @@
 //     form.style.display = 'block';
 // });
 
+
+
 const googleButton = document.getElementById("login-google");
 
 const provider = new firebase.auth.GoogleAuthProvider();
