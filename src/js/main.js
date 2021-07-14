@@ -15,7 +15,7 @@ loginBtn.addEventListener('click', () => {
 });
 
 registerBtn.addEventListener('click', () => {
-    
+
     loginContent.style.display = "none";
     registerContent.style.display = "block";
     landingContent.style.display = "none";
@@ -38,7 +38,56 @@ const loginGoogle = () => {
     });
 };
 
+// REGISTAR
+const registerForm = document.getElementById("register-form");
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const registerEmail = document.getElementById("register-email").value;
+    const registerPassword = document.getElementById("register-password").value;
+    auth
+        .createUserWithEmailAndPassword(registerEmail, registerPassword)
+        .then(userCreddentials => {
+            registerForm.reset();
+        })
+});
 
+//LOGIN
+const loginForm = document.getElementById("login-form");
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const loginEmail = document.getElementById("login-email").value;
+    const loginPassword = document.getElementById("login-password").value;
+    auth
+        .signInWithEmailAndPassword(loginEmail, loginPassword)
+        .then(userCreddentials => {
+            loginForm.reset();
+        })
+});
+
+//LOGOUT
+const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+        console.log("logout");
+        navContent.style.display = "block";
+        feedContent.style.display = "none";
+    })
+});
+
+// Dentro de la pagina
+const feedContent = document.getElementById("feed");
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log("signin");
+        loginContent.style.display = "none";
+        registerContent.style.diplay = "none";
+        feedContent.style.display = "block";
+    }else{
+        landingContent.style.display = "block";
+
+    }
+})
 
 
 
