@@ -32,14 +32,21 @@
                 <input type="password" id="register-password-confirmed" placeholder="Confirma tu Password" required>
                 <button type="submit" id="register-btn"> REGISTER </button>
             </form>
-            <button href="#" type="button" id="loginGoogle">Login with Google</button>        </section>
+            <button href="#" type="button" id="loginGoogle">Login with Google</button></section>
+            <!-- <button href="#" type="button" class="logout-btn">LOGOUT</button> -->
         <section id="login-content" style="display: none;">
-            <form id="login-content">
+            <form id="login-form">
                 <input type="email" id="login-email" placeholder="Ingresa tu email" required>
                 <input type="password" id="login-password" placeholder="Ingresa tu Password" required>
                 <button href="#" type="submit" id="login-btn">LOGIN</button>
             </form>
             <button href="#" type="button" id="loginGoogle">Login with Google</button>
+
+        </section>
+        <section id="feed" style="display: none;">
+            <h1>Estas en el Feed</h1>
+            <button href="#" type="button" id ="logout-btn">LOGOUT</button>
+
         </section>
 
     </main>
@@ -72,7 +79,7 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-
+        const auth = firebase.auth();
     </script>
     <!--Custom Script-->
     <script type="module" src="js/main.js"></script>
