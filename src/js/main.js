@@ -1,29 +1,34 @@
-// const google = document.getElementById("register-google");
-// const form = document.getElementById("formulario-registro-google");
+//Observador de Firebase que verifica si estás logeado y esconde el register o si no estás logeado, solo te muestra el register. 
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        console.log("user")
+        botones.innerHTML= `
+        <button href="#" type="submit" id="loginGoogle">LOGIN</button>
+        `
+        login()  
+    } else {
+        console.log("no existe usuario")
+        botones.innerHTML=`
+        <button href="#" type="submit" id="registerGoogle">REGISTER</button>
+        `
+        login()
+        console.log(registrate)
 
-// google.addEventListener('click', () => {
-//     form.style.display = 'block';
-// });
+      }
+})  //FUNCIONANDO BIEN para ocuparlo eventualmente 
 
+const botones=document.querySelector('#botones');
 
-
-const googleButton = document.getElementById("login-google");
-
-const provider = new firebase.auth.GoogleAuthProvider();
-
-googleButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
+const login = () => {
+    const loginGoogle=document.getElementById('loginGoogle');
+    loginGoogle.addEventListener('click', async() => {
+     const provider = new firebase.auth.GoogleAuthProvider();
+     //e.preventDefault();   
+        try { 
+            await firebase.auth().signInWithPopup(provider)
             console.log("entro con google");
-        }).catch((error) => {
+        } catch (error) {
             console.log(error)
-        });
-});
-
-
-
-
-
+            };        
+    })
+}
