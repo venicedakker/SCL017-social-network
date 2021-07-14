@@ -1,3 +1,4 @@
+// FIREBASE
 // Move to register or login
 const loginBtn = document.getElementById("login");
 const registerBtn = document.getElementById("register");
@@ -108,7 +109,5 @@ auth.onAuthStateChanged(user => {
 //         login();
 //         console.log(registrate)
 //     }
-
-
 // })  //FUNCIONANDO BIEN para ocuparlo eventualmente 
 
