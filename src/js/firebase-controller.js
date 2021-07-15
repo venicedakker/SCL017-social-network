@@ -40,6 +40,7 @@ const loginGoogle = () => {
 };
 
 // REGISTAR
+
 const registerForm = document.getElementById("register-form");
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();

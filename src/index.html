@@ -10,57 +10,12 @@
 </head>
 
 <body>
-    <nav id="botones">
-        <button href="#" type="button" id="login">LOGIN</button>
-        <button href="#" type="button" id="register">REGISTER</button>
-    </nav>
-    <main class="title">
-        <section id="landing">
-            <img id="symbol-1" class="logo" src="./css/img_app/chevronLS.png" alt="logo">
-            <div class="title-students">
-                <h1 class="students"> <span class="chevron left"></span> Laboratoria Students<span
-                        class="chevron right"></span> </h1>
-                <h2 class="title-two">Una red para todas</h2>
-            </div>
-            <!-- <section class="img-background"></section> -->
-            <div>
-                <h2>Encontraras</h2>
-                <div class="green-circle"><h3>Publicar tu enlace de GitHub</h3></div>
-            </div>
-
-        </section>
- 
-        <section id="register-content" style="display: none;">
-            <form  id="register-form">
-                <input type="text" id="username" placeholder="Ingresa tu nombre de usuario" required>
-                <input type="email" id="register-email" placeholder="Ingresa tu email" required>
-                <input type="password" id="register-password" placeholder="Ingresa tu Password" required>
-                <input type="password" id="register-password-confirmed" placeholder="Confirma tu Password" required>
-                <button type="submit" id="register-btn"> REGISTER </button>
-            </form>
-            <button href="#" type="button" id="loginGoogle">Login with Google</button></section>
-            <!-- <button href="#" type="button" class="logout-btn">LOGOUT</button> -->
-        <section id="login-content" style="display: none;">
-            <form id="login-form">
-                <input type="email" id="login-email" placeholder="Ingresa tu email" required>
-                <input type="password" id="login-password" placeholder="Ingresa tu Password" required>
-                <button href="#" type="submit" id="login-btn">LOGIN</button>
-            </form>
-            <button href="#" type="button" id="loginGoogle">Login with Google</button>
-            <button href="#" type="button" id ="logout-btn">LOGOUT</button>
-
-        </section>
-        <section id="feed" style="display: none;">
-            <h1>Estas en el Feed</h1>
-            <button href="#" type="button" id ="logout-btn">LOGOUT</button>
-        </section>
-
-    </main>
+    <main id="root"></main>
     <footer>
         &#169 Laboratoria 2021 - Chevron Mafia
     </footer>
 
-
+    <!-- ------------------------------------------------------------------------------------------------------ -->
     <!--SCRIPT DE FIREBASE-->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -87,8 +42,10 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
     </script>
-    <!--Custom Script-->
-    <script type="module" src="js/main.js"></script>
+    <!-- ------------------------------------------------------------------------------------------------------ -->
+    <!-- SCRIPTS PERSONALIZADOS -->
+    <!-- <script src="./js/firebase-controller.js"></script> -->
+    <script type="module" src="./js/spa-controller.js"></script>
 </body>
 
 </html>
