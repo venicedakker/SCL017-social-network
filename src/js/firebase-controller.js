@@ -39,7 +39,8 @@ const loginGoogle = () => {
     });
 };
 
-// Registrar
+// REGISTAR
+
 const registerForm = document.getElementById("register-form");
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
