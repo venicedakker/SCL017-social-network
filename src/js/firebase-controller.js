@@ -40,6 +40,7 @@ const loginGoogle = () => {
 };
 
 // REGISTAR
+
 const registerForm = document.getElementById("register-form");
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -52,7 +53,7 @@ registerForm.addEventListener('submit', (e) => {
         })
 });
 
-//LOGIN
+//Login
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -65,7 +66,7 @@ loginForm.addEventListener('submit', (e) => {
         })
 });
 
-//LOGOUT
+//Logout
 const logoutBtn = document.getElementById("logout-btn");
 logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -76,7 +77,7 @@ logoutBtn.addEventListener('click', (e) => {
     })
 });
 
-// Dentro de la pagina
+// Dentro de la página
 const feedContent = document.getElementById("feed");
 auth.onAuthStateChanged(user => {
     if (user) {
