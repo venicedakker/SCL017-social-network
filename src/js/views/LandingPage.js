@@ -1,15 +1,8 @@
-import AbstractView from "./AbstractView.js";
-
-export default class extends AbstractView {
-    constructor() {
-        super();
-        this.setTitle("Página Principal");
-    }
-    async getHtml() {
-        return `
+export default () => {
+	const landingView = `
         <nav id="navbar">
-            <a href="/login" id="login" class="button" data-link>LOGIN</a>
-            <a href="/register" id="register" class="button" data-link>Register</a>
+            <a href="#/login" id="login" class="button" >LOGIN</a>
+            <a href="#/register" id="register" class="button" >Register</a>
         </nav>
         <main class="main-content"> 
             <section id="landing">
@@ -20,13 +13,11 @@ export default class extends AbstractView {
                     <h2 class="title-two">Una red para todas</h2>
                 </div>
                 <section class="img-background"></section>
-                <!-- <div>
-                    <h2>Encontraras</h2>
-                    <div class="green-circle"><h3>Publicar tu enlace de GitHub</h3></div>
-                </div> -->
-
             </section>
         </main>
         `;
-    }
+
+    const landingElement = document.createElement('section');
+    landingElement.innerHTML = landingView;
+    return landingElement;
 }
