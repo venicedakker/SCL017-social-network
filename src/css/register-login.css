@@ -1,14 +1,28 @@
-.inputs {
+.input-data {
     border-radius: 10px;
     color: dimgray;
     font-size: 100%;
-    width: 300px;
+    width: 80%;
     padding: 15px;
     margin-bottom: 1em;
     margin-left: 9%;
 }
 
-.login {
+.action-btn{
+    border-radius: 10px;
+    color: var(--pink);
+    background-color: var(--white);
+    height: 52px;
+    width: 80%;
+    border-color: var(--pink);
+    border-width: 3px;
+    font-family: "open sans";
+    margin-bottom: 1em;
+    margin-left: 10%;
+    margin-top: 7%; 
+}
+
+/* .login {
     color: var(--pink);
     background-color: var(--white);
     height: 52px;
@@ -34,9 +48,9 @@
     margin-bottom: 1em;
     margin-left: 10%;
     margin-top: 7%;
-}
+} */
 
-.login-google {
+.action-google {
     background-color: var(--white);
     height: 52px;
     width: 80%;
@@ -54,7 +68,7 @@
     vertical-align: middle;
 }
 
-.linea {
+.line {
     margin: 0px 20px;
     width: 35%;
     border-top: 4px solid var(--pink);
@@ -76,7 +90,7 @@
     margin-left: 10%;
 }
 
-.register {
+.title-form {
     margin-left: 9%;
     margin-bottom: 5%;
     margin-top: 5%;
@@ -95,6 +109,16 @@
 }
 
 .enter {
-    margin-left: 11%;
+    text-align: center;
+    margin-left: 9%;
+    margin-right: 9%;
     margin-bottom: 5%;
+}
+/* Get the link to go to either the register o login pages */
+#link-redirect{
+    color: var(--black);
+    text-decoration-color: var(--black);
+}
+#link-redirect:hover{
+    color: var(--pink);
 }
