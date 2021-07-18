@@ -1,0 +1,100 @@
+.inputs {
+    border-radius: 10px;
+    color: dimgray;
+    font-size: 100%;
+    width: 300px;
+    padding: 15px;
+    margin-bottom: 1em;
+    margin-left: 9%;
+}
+
+.login {
+    color: var(--pink);
+    background-color: var(--white);
+    height: 52px;
+    width: 80%;
+    border-radius: 10px;
+    border-color: var(--pink);
+    border-width: 3px;
+    font-family: "open sans";
+    margin-bottom: 1em;
+    margin-left: 7%;
+    margin-top: 7%;
+}
+
+.register-data {
+    color: var(--pink);
+    background-color: var(--white);
+    height: 52px;
+    width: 80%;
+    border-radius: 10px;
+    border-color: var(--pink);
+    border-width: 3px;
+    font-family: "open sans";
+    margin-bottom: 1em;
+    margin-left: 10%;
+    margin-top: 7%;
+}
+
+.login-google {
+    background-color: var(--white);
+    height: 52px;
+    width: 80%;
+    border-radius: 10px;
+    border-color: var(--green);
+    border-width: 3px;
+    font-family: "open sans";
+    margin-top: 10%;
+    margin-left: 8%;
+    margin-bottom: 5%;
+}
+
+.img-google {
+    width: 10%;
+    vertical-align: middle;
+}
+
+.linea {
+    margin: 0px 20px;
+    width: 35%;
+    border-top: 4px solid var(--pink);
+    position: relative;
+    top: 10px;
+    float: left;
+    margin-top: 10%;
+}
+
+.or {
+    font-weight: bold;
+    float: left;
+    margin-top: 10%;
+}
+
+#logout-btn {
+    color: var(--white);
+    background-color: var(--pink);
+    margin-left: 10%;
+}
+
+.register {
+    margin-left: 9%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.login-password {
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.new-colors {
+    background-color: rgb(250, 250, 250);
+    position: relative;
+    height: 130%;
+}
+
+.enter {
+    margin-left: 11%;
+    margin-bottom: 5%;
+}
