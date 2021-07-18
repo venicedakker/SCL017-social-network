@@ -3,7 +3,6 @@ import LoginView from "./views/LoginView.js";
 import RegisterView from "./views/RegisterView.js";
 import FeedView from "./views/FeedView.js";
 
-
 let content = document.getElementById("root");
 function router(route) {
     content.innerHTML = '';
@@ -23,7 +22,7 @@ function router(route) {
             break;
         }
         case '#/feed': {
-            console.log("this Feed")
+            // console.log("this Feed")
             content.appendChild(FeedView());
             break;
         }

@@ -4,20 +4,20 @@ export default () => {
          <div class="new-colors">
             <section id="login-content">
                 <form id="login-form">
-                    <h1 class="login-password1">Log in</h1> <br>
-                    <input class="inputs" type="email" id="login-email" placeholder="Enter email" required>
-                    <input class="inputs" type="password" id="login-password" placeholder="Enter Password" required>
-                    <button class="login" type="submit" id="login-btn">LOGIN</button>
+                    <h1 class="title-form">Log in</h1> <br>
+                    <input class="input-data" type="email" id="login-email" placeholder="Enter Email" required>
+                    <input class="input-data" type="password" id="login-password" placeholder="Enter Password" required>
+                    <button class="action-btn" type="submit" id="login-btn">LOGIN</button>
                 </form>
-                <div style="width:400px;margin:auto;">
-                    <div class="linea">&nbsp;</div>
-                    <div class="or">Or</div>
-                    <div class="linea">&nbsp;</div>
-                </div>
+                <div class="line">&nbsp;</div>
+                <div class="or">Or</div>
+                <div class="line">&nbsp;</div>
                 
-                <button class="login-google" href="#" type="button" id="loginGoogle"> <span>Login with</span> 
+                <button class="action-google" href="#" type="button" id="loginGoogle"> <span>Login with</span> 
                     <img class="img-google" src="./css/img_app/google.png" alt="google"> <span>oogle</span></button>
-                <h3 class="enter"> ¿No tienes cuenta? Registrate aquí</h3>
+                <h3 class="enter"> ¿No tienes cuenta? 
+                <a href="#/register" id="link-redirect"> Registrate aquí </a>
+                </h3>
             </section>
         </div>
         `;

@@ -28,21 +28,21 @@ const firebaseFunctions = {
     googleLogin: () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider)
-        .then((result) => {
-            console.log("google login")
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+            .then((result) => {
+                console.log("google login")
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
     logoutAccout: () => {
         auth.signOut()
-        .then(() => {
-            console.log("logout");
-        })
-        .catch((error) =>{
-            console.log(error);
-        });
+            .then(() => {
+                console.log("logout");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 };
 
