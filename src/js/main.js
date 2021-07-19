@@ -10,8 +10,10 @@ window.addEventListener("hashchange",()=>{
 // Get change when it goes inside the page (posts feed)
 auth.onAuthStateChanged((user)=>{
     if(user){
+        let uid = user.uid;
+        console.log("user id? "+uid);
         router("#/feed");
-    } else{
-        router("");
+    } else {
+        router(window.location.hash);
     }
 });
