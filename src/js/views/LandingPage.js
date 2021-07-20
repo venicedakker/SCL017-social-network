@@ -3,7 +3,7 @@ export default () => {
         <nav id="navbar">
             <a href="#/login" id="login" class="button" >LOGIN</a>
             <a href="#/register" id="register" class="button" >Register</a>
-            <a href="#/profile" id="profile" class="button" >profile</a>
+            <!--<a href="#/profile" id="profile" class="button" >profile</a>-->
         </nav>
         <main class="main-content"> 
             <section id="landing">

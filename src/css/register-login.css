@@ -2,10 +2,9 @@
     border-radius: 10px;
     color: dimgray;
     font-size: 100%;
-    width: 80%;
+    width: 100%;
     padding: 15px;
     margin-bottom: 1em;
-    margin-left: 9%;
     border-color: var(--black) ;
 }
 
@@ -13,13 +12,12 @@
     border-radius: 10px;
     color: var(--pink);
     background-color: var(--white);
-    height: 52px;
-    width: 80%;
+    padding: 20px;
+    width: 100%;
     border-color: var(--pink);
     border-width: 3px;
     font-family: "open sans";
     margin-bottom: 1em;
-    margin-left: 10%;
     margin-top: 7%; 
 }
 
@@ -54,13 +52,12 @@
 .action-google {
     background-color: var(--white);
     height: 52px;
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     border-color: var(--green);
     border-width: 3px;
     font-family: "open sans";
     margin-top: 10%;
-    margin-left: 8%;
     margin-bottom: 5%;
 }
 

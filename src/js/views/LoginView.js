@@ -2,6 +2,7 @@ import firebaseFunctions from "../firebase-functions.js";
 export default () => {
     const loginView = `
          <div class="new-colors">
+         <div class="container">
             <section id="login-content">
                 <form id="login-form">
                     <h1 class="title-form">Log in</h1> <br>
@@ -18,6 +19,7 @@ export default () => {
                 <h3 class="enter"> ¿No tienes cuenta? 
                 <a href="#/register" id="link-redirect"> Registrate aquí </a>
                 </h3>
+                </div>
             </section>
         </div>
         `;
