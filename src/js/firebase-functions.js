@@ -41,6 +41,12 @@ const firebaseFunctions = {
             .catch((error) => {
                 console.log(error);
             });
+    },
+    firebaseCollectionsUsers:(userId, email)=>{
+        firebase.firestore().collection('users').doc().set({
+            userId,
+            email
+        });
     }
 };
 

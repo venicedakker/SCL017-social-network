@@ -19,8 +19,9 @@ export default () => {
                 <h3 class="enter"> ¿No tienes cuenta? 
                 <a href="#/register" id="link-redirect"> Registrate aquí </a>
                 </h3>
-                </div>
+               
             </section>
+            </div>
         </div>
         `;
 

@@ -2,7 +2,8 @@ import firebaseFunctions from "../firebase-functions.js";
 export default () => {
     const feedView = `
                 <h1> THIS IS THE FEEEEEED</h1>
-                <a href="#/" id="logout-btn">LOGOUT</a>
+                <a href="" id="logout-btn">LOGOUT</a>
+                <a href="#/profile" id="profile" class="button" >profile</a>
             `;
     const feedElement = document.createElement('section');
     feedElement.innerHTML = feedView;
