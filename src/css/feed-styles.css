@@ -1,0 +1,15 @@
+#feed-section{
+    text-align: center;
+}
+#navbar-feed{
+    display: flex;
+    flex-direction: row;
+}
+#side-nav{
+    display: inline-flex;
+    margin-left: 70%;
+}
+
+.button{
+    margin-left: 5%;
+}

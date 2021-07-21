@@ -1,0 +1,42 @@
+@media all and (min-width: 1024px) {
+    /* login - register button */
+    #navbar {
+        position: relative;
+        padding: 10px;
+    }
+    .button {
+        margin-left: 30%;
+        width: 100px;
+        
+    }
+    #register {
+        margin-left: 91%;
+        
+    }
+    #login {
+        margin-left: 70%;
+        position: fixed;
+    }
+    /* image */
+    .img-background {
+        position: inherit;
+        position: relative;
+        padding: 23%;
+        background-position: left;
+    }
+    .title-students {
+        padding: 5%;
+    }
+    .logo {
+        width: 12%;
+    }
+    .students {
+        font-size: 3rem;
+    }
+    .title-two {
+        font-size: 2rem;
+    }
+    footer{
+        position: relative;
+    }
+}

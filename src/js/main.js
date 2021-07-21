@@ -10,14 +10,25 @@ window.addEventListener("hashchange",()=>{
 // Get change when it goes inside the page (posts feed)
 auth.onAuthStateChanged((user)=>{
     if(user){
-        let userInfo =  {
-            id: user.uid,
-            email: user.email
-        }
+        console.log(user);
+        // let userInfo =  {
+        //     id: user.uid,
+        //     email: user.email
+        // }
+        // const querySnapshot = getUsers();
+        // querySnapshot.forEach((doc)=>{
+        //     if(user.uid != doc.id){
+        //         firebaseFunctions.firebaseCollectionsUsers(userInfo.uid, userInfo.email);
+        //     }
+        // })
+                        // firebaseFunctions.firebaseCollectionsUsers(userInfo.uid, userInfo.email);
+
         router("#/feed");
     } else {
         router(window.location.hash);
     }
 });
 
-firebaseFunctions.firebaseCollectionsUsers(userInfo.uid, userInfo.email);
+// obtengo los valores de la coleccion usuario
+// const getUsers = () => firebase.firestore().collection('users').get();
+

@@ -2,5 +2,7 @@
 @import "./landing-page.css";
 @import "./chevron-span.css";
 @import "./register-login.css";
-@import "./profile-post.css";
-@import "./media-queri.css";
+@import "./profile-styles.css";
+@import "./media-querie-landing.css";
+@import "./media-querie-register-login.css";
+@import "./feed-styles.css";

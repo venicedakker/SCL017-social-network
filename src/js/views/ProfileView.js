@@ -1,6 +1,8 @@
 export default () => {
 	const ProfileView = `
     <div class="profile-post">
+    <a href="#/feed" id="profile" class="button" >Feed</a>
+
     <img class="perfil" src="./css/img_app/perfil.jpeg" alt="perfil">
     </div>
     <h1 class="name">Luisa Ortiz</h1>
