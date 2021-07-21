@@ -2,7 +2,7 @@ export default () => {
 	const ProfileView = `
     <div class="profile-post">
     <a href="#/feed" id="profile" class="button" >Feed</a>
-
+    <a href="" id="logout-btn" class="button">LOGOUT</a>
     <img class="perfil" src="./css/img_app/perfil.jpeg" alt="perfil">
     </div>
     <h1 class="name">Luisa Ortiz</h1>
@@ -13,4 +13,10 @@ export default () => {
     const profile = document.createElement('section');
     profile.innerHTML = ProfileView;
     return profile;
+    const logoutButton = feedElement.querySelector("#logout-btn");
+    logoutButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        firebaseFunctions.logoutAccout();
+    });
+
 }
