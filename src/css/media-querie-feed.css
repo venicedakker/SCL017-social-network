@@ -1,0 +1,30 @@
+@media all and (min-width: 1024px) {
+    #search-bar {
+        display: block;
+    }
+    #side-nav {
+        grid-column: 3;
+    }
+    #navbar-feed {
+        display: none;
+    }
+    #navbar-feed-laptop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+    .redirect {
+        color: var(--pink);
+        text-decoration: none;
+        font-family: "open sans";
+        font-weight: 800;
+        margin: 0 7.3% 0 7.3%;
+    }
+    .search-link {
+        height: 60px;
+        width: 60px;
+    }
+    #search-bar, #search-links {
+        padding: 20px 0 20px 0;
+    }
+}
