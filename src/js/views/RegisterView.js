@@ -13,10 +13,13 @@ export default () => {
                     <button class="action-btn" type="submit" id="register-btn"> REGISTER </button>
                 </form>
            
-                <div class="line">&nbsp;</div>
-                <div class="or">Or</div>
-                <div class="line">&nbsp;</div>
-                <button class="action-google" type="button" id="loginGoogle"> <span>Login with</span> <img class="img-google" src="./css/img_app/google.png" alt="google"> <span>oogle</span></button>
+                <div id="break-section">
+                    <div class="line">&nbsp;</div>
+                    <div class="or">Or</div>
+                    <div class="line">&nbsp;</div>
+                </div>
+                
+                <button class="action-google" type="button" id="loginGoogle"> <span>LOGIN WITH </span> <img class="img-google" src="./css/img_app/google.png" alt="google"><span> OOGLE </span></button>
            
                 <h3 class="enter"> ¿Ya tienes cuenta? 
                 <a href="#/login" id="link-redirect"> Ingresa aquí </a>

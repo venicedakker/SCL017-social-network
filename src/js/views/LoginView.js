@@ -10,12 +10,15 @@ export default () => {
                     <input class="input-data" type="password" id="login-password" placeholder="Enter Password" required>
                     <button class="action-btn" type="submit" id="login-btn">LOGIN</button>
                 </form>
-                <div class="line">&nbsp;</div>
-                <div class="or">Or</div>
-                <div class="line">&nbsp;</div>
+
+                <div id="break-section">
+                    <div class="line">&nbsp;</div>
+                    <div class="or">Or</div>
+                    <div class="line">&nbsp;</div>
+                </div>
                 
-                <button class="action-google" href="#" type="button" id="loginGoogle"> <span>Login with</span> 
-                    <img class="img-google" src="./css/img_app/google.png" alt="google"> <span>oogle</span></button>
+                <button class="action-google" href="#" type="button" id="loginGoogle"> <span> LOGIN WITH </span> 
+                    <img class="img-google" src="./css/img_app/google.png" alt="google"> <span> OOGLE </span></button>
                 <h3 class="enter"> ¿No tienes cuenta? 
                 <a href="#/register" id="link-redirect"> Registrate aquí </a>
                 </h3>

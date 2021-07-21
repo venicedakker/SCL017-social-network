@@ -5,10 +5,10 @@
     width: 100%;
     padding: 15px;
     margin-bottom: 1em;
-    border-color: var(--black) ;
+    border-color: var(--black);
 }
 
-.action-btn{
+.action-btn {
     border-radius: 10px;
     color: var(--pink);
     background-color: var(--white);
@@ -17,8 +17,9 @@
     border-color: var(--pink);
     border-width: 3px;
     font-family: "open sans";
+    font-size: 1rem;
     margin-bottom: 1em;
-    margin-top: 7%; 
+    margin-top: 7%;
 }
 
 /* .login {
@@ -82,12 +83,6 @@
     margin-top: 10%;
 }
 
-#logout-btn {
-    color: var(--white);
-    background-color: var(--pink);
-    margin-left: 10%;
-}
-
 .title-form {
     margin-left: 9%;
     margin-bottom: 5%;
@@ -112,11 +107,17 @@
     margin-right: 9%;
     margin-bottom: 5%;
 }
+
 /* Get the link to go to either the register o login pages */
-#link-redirect{
-    color: var(--black);
-    text-decoration-color: var(--black);
-}
-#link-redirect:hover{
+
+#link-redirect {
     color: var(--pink);
+    text-decoration: none;
+    
+}
+
+#link-redirect:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--pink);
+
 }
