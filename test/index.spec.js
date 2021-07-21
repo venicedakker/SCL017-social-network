@@ -4,24 +4,24 @@ import registerView from '../src/js/views/registerView';
 import profileView from '../src/js/views/profileView';
 import feedView from '../src/js/views/feedView';
 
-describe('views performed in dynamic html', () => {
-  it('should return html dynamics elements in each template', () => {
+describe('different views created with dynamic html elements', () => {
+  it('should return a landing page template', () => {
     const landingView = landingPage();
     expect(landingView instanceof HTMLElement).toBe(true);
   });
-  it('login debería ser un template html', () => {
+  it('should return a login page template', () => {
     const loginPage = loginView();
     expect(loginPage instanceof HTMLElement).toBe(true);
   });
-  it('selection debería ser un template html', () => {
+  it('should return a register page template', () => {
     const registerPage = registerView();
     expect(registerPage instanceof HTMLElement).toBe(true);
   });
-  it('signup debería ser un template html', () => {
+  it('should return a profile page template', () => {
     const profilePage = profileView();
     expect(profilePage instanceof HTMLElement).toBe(true);
   });
-  it('wall debería ser un template html', () => {
+  it('shoul return a feed page template', () => {
     const feedPage = feedView();
     expect(feedPage instanceof HTMLElement).toBe(true);
   });
