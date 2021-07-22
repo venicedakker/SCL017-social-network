@@ -1,53 +1,52 @@
-import LandingPage from "./views/LandingPage.js";
-import LoginView from "./views/LoginView.js";
-import RegisterView from "./views/RegisterView.js";
-import FeedView from "./views/FeedView.js";
-import ProfileView from "./views/ProfileView.js";
+import landingPage from './views/landingPage.js';
+import loginView from './views/loginView.js';
+import registerView from './views/registerView.js';
+import feedView from './views/feedView.js';
+import profileView from './views/profileView.js';
 
-let content = document.getElementById("root");
-const title = document.querySelector("title");
+const content = document.getElementById('root');
+const title = document.querySelector('title');
 function router(route) {
-    content.innerHTML = '';
-    switch (route) {
-        case '': {
-            // document.title("Laboratoria Students - Landing");
-            content.appendChild(LandingPage());
-            break;
-        }
-        case '#/': {
-            content.appendChild(LandingPage());
-            break;
-        }
-        case '#/login':{
-            
-           title.innerHTML="Login";
-            // console.log("login here")
-            content.appendChild(LoginView());
-            break;
-        }
-        case '#/register': {
-            title.innerHTML="Register";
-            // console.log("register here")
-            content.appendChild(RegisterView());
-            break;
-        }
-        case '#/feed': {
-            title.innerHTML="Feed";
-            // console.log("this Feed")
-            content.appendChild(FeedView());
-            break;
-        }
-
-        case '#/profile': {
-            // console.log("this profile")
-            content.appendChild(ProfileView());
-            break;
-        }
-        default: {
-            console.log("default here")
-            router('');
-            break;
-        }
+  content.innerHTML = '';
+  switch (route) {
+    case '': {
+      // document.title("Laboratoria Students - Landing");
+      content.appendChild(landingPage());
+      break;
     }
-};
+    case '#/': {
+      content.appendChild(landingPage());
+      break;
+    }
+    case '#/login': {
+      title.innerHTML = 'Login';
+      // console.log("login here")
+      content.appendChild(loginView());
+      break;
+    }
+    case '#/register': {
+      title.innerHTML = 'Register';
+      // console.log("register here")
+      content.appendChild(registerView());
+      break;
+    }
+    case '#/feed': {
+      title.innerHTML = 'Feed';
+      // console.log("this Feed")
+      content.appendChild(feedView());
+      break;
+    }
+
+    case '#/profile': {
+      // console.log("this profile")
+      content.appendChild(profileView());
+      break;
+    }
+    default: {
+      /* console.log('default here'); */
+      router('');
+      break;
+    }
+  }
+}
 export { router };
