@@ -1,6 +1,6 @@
 import firebaseFunctions from "../firebase-functions.js";
 export default () => {
-    const feedView = `
+  const feedView = `
                 <nav id="navbar-feed">
                     <div id="side-nav" >
                         <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
@@ -65,15 +65,15 @@ export default () => {
             `;
 
 
-    const feedElement = document.createElement('section');
-    feedElement.innerHTML = feedView;
+  const feedElement = document.createElement('section');
+  feedElement.innerHTML = feedView;
 
-    // const logoutButton = feedElement.querySelector("#logout-btn");
-    // logoutButton.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     firebaseFunctions.logoutAccout();
-    // });
+  // const logoutButton = feedElement.querySelector("#logout-btn");
+  // logoutButton.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     firebaseFunctions.logoutAccout();
+  // });
 
-    return feedElement;
+  return feedElement;
 }
 
