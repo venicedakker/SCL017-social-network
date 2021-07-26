@@ -92,13 +92,6 @@ footer {
   text-align: center;
 }
 
-.green-circle {
-  border-radius: 100%;
-  width: 50%;
-  height: 50%;
-  background-color: var(--green);
-}
-
 .inputs {
   border-radius: 10px;
   color: dimgray;
@@ -199,4 +192,60 @@ footer {
   margin-left: auto;
   margin-right: auto;
   padding: 1rem;
+}
+
+.green-circle {
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  background-color: var(--green);
+}
+
+#slider {
+  overflow: hidden;
+  height: 300px;
+}
+
+#slider figure {
+  position: relative;
+  width: 500%;
+  animation: 10s slider infinite;
+  text-align: center;
+}
+
+#slider figure div {
+  width: 20%;
+  /* float: left; */
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
 }

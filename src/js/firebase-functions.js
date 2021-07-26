@@ -1,40 +1,40 @@
 const auth = firebase.auth();
 
 const firebaseFunctions = {
-  registerAccount: (email, password) => {
+  registerAccount: (email, password, username) => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-
-        const user = userCredential.user;
-        /* console.log('user from register: ' + user); */
-
+      .then(() => {
+        const user = auth.currentUser;
+        user.updateProfile({
+          displayName: username
+        })
+        user.sendEmailVerification();
       })
       .catch((error) => {
         console.log(error);
-        console.log(error.message);
+        alert(error.message);
+
       });
   },
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
-
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('user from login: ' + user);
+      .then(() => {
       })
       .catch((error) => {
-        console.log(error.message);
-        /* window.alert('Error: '+ error.message); */
+        console.log(error);
+        alert(error.message);
       });
   },
   googleLogin: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-
     auth
       .signInWithPopup(provider)
-      .then((result) => {
-        console.log('google login');
+      .then(() => {
+        const user = auth.currentUser;
+        console.log(user);
+        // console.log(result);
       })
       .catch((error) => {
         console.log(error);
@@ -42,20 +42,21 @@ const firebaseFunctions = {
   },
   logoutAccout: () => {
 
-    auth
-      .signOut()
+    auth.signOut()
       .then(() => {
         console.log('logout');
       })
       .catch((error) => {
         console.log(error);
       });
+    window.location.hash = "";
   },
-  firebaseCollectionsUsers: (userId, email) => {
-    firebase.firestore().collection('users').doc().set({
-      userId,
-      email
-    });
+  currentUser: () => {
+    const user = auth.currentUser;
+    if (user != null && user.emailVerified) {
+      return user;
+    }
+    return null;
   }
 
 };
