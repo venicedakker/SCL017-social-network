@@ -5,8 +5,10 @@ const firebaseFunctions = {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
+
         const user = userCredential.user;
         /* console.log('user from register: ' + user); */
+
       })
       .catch((error) => {
         console.log(error);
@@ -16,6 +18,7 @@ const firebaseFunctions = {
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
+
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('user from login: ' + user);
@@ -27,6 +30,7 @@ const firebaseFunctions = {
   },
   googleLogin: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
+
     auth
       .signInWithPopup(provider)
       .then((result) => {
@@ -37,6 +41,7 @@ const firebaseFunctions = {
       });
   },
   logoutAccout: () => {
+
     auth
       .signOut()
       .then(() => {
@@ -49,9 +54,10 @@ const firebaseFunctions = {
   firebaseCollectionsUsers: (userId, email) => {
     firebase.firestore().collection('users').doc().set({
       userId,
-      email,
+      email
     });
-  },
+  }
+
 };
 
 export default firebaseFunctions;
