@@ -3,7 +3,6 @@ export default () => {
         <nav id="navbar">
             <a href="#/login" id="login" class="button" >LOGIN</a>
             <a href="#/register" id="register" class="button" >REGISTER</a>
-            
         </nav>
         <main class="main-content"> 
             <section id="landing">
@@ -14,7 +13,19 @@ export default () => {
                     <h2 class="title-two">Una red para todas</h2>
                 </div>
                 <section class="img-background"></section>
+                <!--
+                <div id="slider">
+                    <figure> 
+                        <div><h2 class="green-circle">Cuadro uno</h2></div>
+                        <div><h2 class="green-circle">Cuadro dos</h2></div>
+                        <div><h2 class="green-circle">Cuadro tres</h2></div>
+                        <div><h2 class="green-circle">Cuadro cuatro</h2></div>
+                        <div><h2 class="green-circle">Cuadro cinco</h2></div>
+                    </figure>
+                </div>
+                -->
             </section>
+
         </main>
         `;
 

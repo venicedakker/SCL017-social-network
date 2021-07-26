@@ -1,3 +1,4 @@
+import firebaseFunctions from '../firebase-functions.js';
 export default () => {
   const profileView = `
     <div class="profile-post">
@@ -12,10 +13,13 @@ export default () => {
 
   const profile = document.createElement('section');
   profile.innerHTML = profileView;
-  return profile;
-  const logoutButton = feedElement.querySelector('#logout-btn');
+
+  const logoutButton = profile.querySelector('#logout-btn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     firebaseFunctions.logoutAccout();
   });
+
+  return profile;
+
 };

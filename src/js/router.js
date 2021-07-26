@@ -3,43 +3,61 @@ import loginView from './views/loginView.js';
 import registerView from './views/registerView.js';
 import feedView from './views/feedView.js';
 import profileView from './views/profileView.js';
+import firebaseFunctions from './firebase-functions.js';
 
 const content = document.getElementById('root');
 const title = document.querySelector('title');
+const footer = document.querySelector('footer');
+const user = firebaseFunctions.currentUser();
 function router(route) {
+
   content.innerHTML = '';
   switch (route) {
     case '': {
-      // document.title("Laboratoria Students - Landing");
-      content.appendChild(landingPage());
-      break;
-    }
-    case '#/': {
+      title.innerHTML = ("Laboratoria Students");
       content.appendChild(landingPage());
       break;
     }
     case '#/login': {
-      title.innerHTML = 'Login';
-      // console.log("login here")
+      title.innerHTML = 'Login - Laboratoria Students';
       content.appendChild(loginView());
       break;
     }
     case '#/register': {
-      title.innerHTML = 'Register';
-      // console.log("register here")
+      title.innerHTML = 'Register - Laboratoria Students';
       content.appendChild(registerView());
       break;
     }
     case '#/feed': {
-      title.innerHTML = 'Feed';
-      // console.log("this Feed")
-      content.appendChild(feedView());
+      // content.appendChild(feedView());
+      // footer.style.display = "none";
+      // break;
+
+      if (user!=null) {
+        window.location.hash = '#/feed';
+        title.innerHTML = 'Feed - Laboratoria Students';
+        content.appendChild(feedView());
+        
+        footer.style.display = "none";
+      } else {
+        alert("Check your email to verified account");
+        window.location.hash = '#/login';
+      }
       break;
     }
 
     case '#/profile': {
-      // console.log("this profile")
-      content.appendChild(profileView());
+      // content.appendChild(profileView());
+      // break;
+      if (user != null) {
+        window.location.hash = '#/profile';
+        title.innerHTML = 'Profile - Laboratoria Students';
+        content.appendChild(profileView());
+      } else {
+        alert("login to see profile")
+        window.location.hash = '#/login';
+
+      }
       break;
     }
     default: {
