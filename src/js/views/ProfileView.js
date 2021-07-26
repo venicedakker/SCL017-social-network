@@ -1,5 +1,5 @@
 export default () => {
-	const ProfileView = `
+  const profileView = `
     <div class="profile-post">
     <a href="#/feed" id="profile" class="button" >Feed</a>
     <a href="" id="logout-btn" class="button">LOGOUT</a>
@@ -10,13 +10,12 @@ export default () => {
     <div class="post">post</div>
         `;
 
-    const profile = document.createElement('section');
-    profile.innerHTML = ProfileView;
-    return profile;
-    const logoutButton = feedElement.querySelector("#logout-btn");
-    logoutButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        firebaseFunctions.logoutAccout();
-    });
-
-}
+  const profile = document.createElement('section');
+  profile.innerHTML = profileView;
+  return profile;
+  const logoutButton = feedElement.querySelector('#logout-btn');
+  logoutButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    firebaseFunctions.logoutAccout();
+  });
+};

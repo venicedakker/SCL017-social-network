@@ -1,4 +1,5 @@
-import firebaseFunctions from "../firebase-functions.js";
+/* import firebaseFunctions from "./js/firebase-functions.js"; */
+
 export default () => {
   const feedView = `
                 <nav id="navbar-feed">
@@ -64,9 +65,9 @@ export default () => {
                 
             `;
 
-
   const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
+
 
   // const logoutButton = feedElement.querySelector("#logout-btn");
   // logoutButton.addEventListener('click', (e) => {
@@ -74,6 +75,8 @@ export default () => {
   //     firebaseFunctions.logoutAccout();
   // });
 
-  return feedElement;
-}
 
+
+
+  return feedElement;
+};

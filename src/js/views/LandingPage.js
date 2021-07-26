@@ -1,5 +1,5 @@
 export default () => {
-	const landingView = `
+  const landingView = `
         <nav id="navbar">
             <a href="#/login" id="login" class="button" >LOGIN</a>
             <a href="#/register" id="register" class="button" >REGISTER</a>
@@ -18,7 +18,7 @@ export default () => {
         </main>
         `;
 
-    const landingElement = document.createElement('section');
-    landingElement.innerHTML = landingView;
-    return landingElement;
-}
+  const landingElement = document.createElement('section');
+  landingElement.innerHTML = landingView;
+  return landingElement;
+};

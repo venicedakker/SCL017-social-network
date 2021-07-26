@@ -1,6 +1,7 @@
-import firebaseFunctions from "../firebase-functions.js";
+import firebaseFunctions from '../firebase-functions.js';
+
 export default () => {
-    const loginView = `
+  const loginView = `
          <div class="new-colors">
          <div class="container">
             <section id="login-content">
@@ -28,25 +29,22 @@ export default () => {
         </div>
         `;
 
-    // Debo crear un elemento para hacer el append del mismo en el root
-    const loginElement = document.createElement('section');
-    loginElement.innerHTML = loginView;
-    // Funcionalidad del boton de Google
-    const googleButton = loginElement.querySelector('#loginGoogle');
-    googleButton.addEventListener('click', () => {
-        firebaseFunctions.googleLogin();
-    });
-    // funcionalidad del login sin google 
-    const loginForm = loginElement.querySelector("#login-form");
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = loginElement.querySelector("#login-email").value;
-        const password = loginElement.querySelector("#login-password").value;
-        firebaseFunctions.loginAccount(email, password);
-    });
+  // Debo crear un elemento para hacer el append del mismo en el root
+  const loginElement = document.createElement('section');
+  loginElement.innerHTML = loginView;
+  // Funcionalidad del boton de Google
+  const googleButton = loginElement.querySelector('#loginGoogle');
+  googleButton.addEventListener('click', () => {
+    firebaseFunctions.googleLogin();
+  });
+  // funcionalidad del login sin google
+  const loginForm = loginElement.querySelector('#login-form');
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = loginElement.querySelector('#login-email').value;
+    const password = loginElement.querySelector('#login-password').value;
+    firebaseFunctions.loginAccount(email, password);
+  });
 
-    return loginElement;
-
-}
-
-
+  return loginElement;
+};

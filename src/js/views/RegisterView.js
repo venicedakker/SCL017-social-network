@@ -1,6 +1,7 @@
-import firebaseFunctions from "../firebase-functions.js";
+import firebaseFunctions from '../firebase-functions.js';
+
 export default () => {
-    const registerView = `
+  const registerView = `
         <div class="new-colors">
         <div class="container">
             <section id="register-content" >
@@ -29,36 +30,34 @@ export default () => {
         </div>
             `;
 
-    const registerElement = document.createElement('section');
-    registerElement.innerHTML = registerView;
+  const registerElement = document.createElement('section');
+  registerElement.innerHTML = registerView;
 
-    const googleButton = registerElement.querySelector('#loginGoogle');
-    googleButton.addEventListener('click',() =>{
-        firebaseFunctions.googleLogin();
-    });
-    
-    const registerForm = registerElement.querySelector("#register-form");
-    registerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const userRegistration = {
-            username: registerElement.querySelector("#username").value,
-            email: registerElement.querySelector("#register-email").value,
-            password: registerElement.querySelector("#register-password").value,
-            confirmedPassword: registerElement.querySelector("#register-password-confirmed").value
-        };
+  const googleButton = registerElement.querySelector('#loginGoogle');
+  googleButton.addEventListener('click', () => {
+    firebaseFunctions.googleLogin();
+  });
 
-        if (userRegistration.password == userRegistration.confirmedPassword) {
-            const email = registerElement.querySelector("#register-email").value;
-            const password = registerElement.querySelector("#register-password").value;
-            firebaseFunctions.registerAccount(email, password);
-            
-        } else {
-            console.log("try again");
-        }
+  const registerForm = registerElement.querySelector('#register-form');
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userRegistration = {
+      username: registerElement.querySelector('#username').value,
+      email: registerElement.querySelector('#register-email').value,
+      password: registerElement.querySelector('#register-password').value,
+      confirmedPassword: registerElement.querySelector(
+        '#register-password-confirmed',
+      ).value,
+    };
 
-    });
+    if (userRegistration.password === userRegistration.confirmedPassword) {
+      const email = registerElement.querySelector('#register-email').value;
+      const password = registerElement.querySelector('#register-password').value;
+      firebaseFunctions.registerAccount(email, password);
+    } else {
+      console.log('try again');
+    }
+  });
 
-
-    return registerElement;
-}
-
+  return registerElement;
+};

@@ -1,56 +1,51 @@
+const auth = firebase.auth();
+
 const firebaseFunctions = {
   registerAccount: (email, password) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        let user = userCredential.user;
-        console.log("user from register: " + user);
+
+        const user = userCredential.user;
+        /* console.log('user from register: ' + user); */
+
       })
       .catch((error) => {
         console.log(error);
         console.log(error.message);
       });
-
-    // auth.
-    // createUserWithEmailAndPassword(email, password)
-    // .then(()=>{
-    //     const user = auth.currentUser;
-    //     user.updateProfile({
-    //         displayName: username
-    //     });
-    //     user.sendEmailVerification();
-    //     // alert('Revisa tu bandeja de entrada')
-    //     console.log(user);
-    // })
-    // .catch((error)=>{
-    //     console.log(error.message);
   },
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(userCredential => {
+
+      .then((userCredential) => {
         const user = userCredential.user;
-        console.log("user from login: " + user);
+        console.log('user from login: ' + user);
       })
       .catch((error) => {
         console.log(error.message);
-        //window.alert('Error: '+ error.message);
+        /* window.alert('Error: '+ error.message); */
       });
   },
   googleLogin: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
+
+    auth
+      .signInWithPopup(provider)
       .then((result) => {
-        console.log("google login")
+        console.log('google login');
       })
       .catch((error) => {
         console.log(error);
       });
   },
   logoutAccout: () => {
-    auth.signOut()
+
+    auth
+      .signOut()
       .then(() => {
-        console.log("logout");
+        console.log('logout');
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +57,7 @@ const firebaseFunctions = {
       email
     });
   }
-};
 
+};
 
 export default firebaseFunctions;
