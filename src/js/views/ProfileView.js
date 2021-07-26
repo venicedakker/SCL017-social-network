@@ -1,4 +1,4 @@
-import firebaseFunctions from '../firebase-functions.js'
+import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
   const profileView = `
@@ -14,13 +14,14 @@ export default () => {
 
   const profile = document.createElement('section');
   profile.innerHTML = profileView;
-  
   const logoutButton = profile.querySelector('#logout-btn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     firebaseFunctions.logoutAccout();
  
   });
+
   return profile;
+
 };
 
