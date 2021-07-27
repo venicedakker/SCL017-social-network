@@ -17,7 +17,7 @@ export default () => {
   const logoutButton = profile.querySelector('#logout-btn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
-    firebaseFunctions.logoutAccout();
+    firebaseFunctions.logoutAccount();
   });
 
   return profile;

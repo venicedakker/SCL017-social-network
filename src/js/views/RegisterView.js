@@ -1,4 +1,4 @@
-import firebaseFunctions from '../firebase-functions.js';
+import firebaseFunctions from './firebase-functions.js';
 
 export default () => {
   const registerView = `
@@ -54,7 +54,7 @@ export default () => {
       firebaseFunctions.registerAccount(
         userRegistration.email,
         userRegistration.password,
-        userRegistration.username
+        userRegistration.username,
       );
     } else {
       console.log('try again');

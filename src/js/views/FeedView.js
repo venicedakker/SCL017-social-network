@@ -1,4 +1,4 @@
-/* import firebaseFunctions from './js/firebase-functions.js'; */
+/* import firebaseFunctions from './js/firebase-functions.js';  */
 
 export default () => {
   const feedView = `
@@ -57,12 +57,7 @@ export default () => {
                                 <p>Nombre Aquí</p>
                             </div>  
                         </div>
-                </section>  
-                        
-                        
-                        
-
-                          
+                </section>   
                         
                         </div>
                     </div>
@@ -70,22 +65,18 @@ export default () => {
                         <textarea id="new-post"cols="30" rows="10"></textarea>
                         <button type="submit" id="submit-post">Post</button>
                     </form>
-                    <section id="all-posts">
-                           
+                    <section id="all-posts">    
                     </section> 
-                
-                </section>
-                
-                
+                </section>               
             `;
 
-  const feedElement = document.createElement('section');
+  const feedElement = document.createElement("section");
   feedElement.innerHTML = feedView;
 
-  // const logoutButton = feedElement.querySelector("#logout-btn");
+  // const logoutButton = feedElement.querySelector('#logout-btn');
   // logoutButton.addEventListener('click', (e) => {
   //     e.preventDefault();
-  //     firebaseFunctions.logoutAccout();
+  //     firebaseFunctions.logoutAccount();
   // });
 
   return feedElement;

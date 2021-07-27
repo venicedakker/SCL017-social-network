@@ -12,9 +12,9 @@ const firebaseFunctions = {
       .catch((error) => {
         console.log(error);
         alert(error.message);
-      });
+      }),
   },
-  loginAccount: (email, password) => {
+  loginAccount = (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
@@ -22,8 +22,8 @@ const firebaseFunctions = {
         console.log(error);
         alert(error.message);
       });
-  },
-  googleLogin: () => {
+  }
+  googleLogin = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
       .signInWithPopup(provider)
@@ -36,18 +36,18 @@ const firebaseFunctions = {
         console.log(error);
       });
   },
-  logoutAccout: () => {
+  logoutAccount = () => {
     auth
       .signOut()
       .then(() => {
-        console.log("logout");
+        console.log('logout');
       })
       .catch((error) => {
         console.log(error);
       });
-    window.location.hash = "";
+    window.location.hash = '';
   },
-  currentUser: () => {
+  currentUser= () => {
     const user = auth.currentUser;
     if (user != null && user.emailVerified) {
       return user;

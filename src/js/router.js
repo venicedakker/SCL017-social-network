@@ -10,7 +10,7 @@ const title = document.querySelector('title');
 const footer = document.querySelector('footer');
 const user = firebaseFunctions.currentUser();
 
-function router(route) {
+function router(route){
 
   content.innerHTML = '';
   switch (route) {
@@ -42,7 +42,7 @@ function router(route) {
       //   content.appendChild(feedView());
       //   footer.style.display = "none";
       // } else {
-      //   alert("Check your email to verified account");
+      //   alert('Check your email to verified account');
       //   window.location.hash = '#/login';
       // }
       // break;
@@ -56,7 +56,7 @@ function router(route) {
       //   title.innerHTML = 'Profile - Laboratoria Students';
       //   content.appendChild(profileView());
       // } else {
-      //   alert("login to see profile")
+      //   alert('login to see profile')
       //   window.location.hash = '#/login';
 
       // }
