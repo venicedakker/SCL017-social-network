@@ -1,4 +1,4 @@
-import firebaseFunctions from './firebase-functions.js';
+import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
   const registerView = `

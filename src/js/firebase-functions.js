@@ -1,3 +1,5 @@
+const auth = firebase.auth();
+
 const firebaseFunctions = {
   registerAccount: (email, password, username) => {
     auth
@@ -8,13 +10,13 @@ const firebaseFunctions = {
           displayName: username,
         });
         user.sendEmailVerification();
-      });
+      })
       .catch((error) => {
         console.log(error);
         alert(error.message);
-      }),
+      });
   },
-  loginAccount = (email, password) => {
+  loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
@@ -22,8 +24,8 @@ const firebaseFunctions = {
         console.log(error);
         alert(error.message);
       });
-  }
-  googleLogin = () => {
+  },
+  googleLogin: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
       .signInWithPopup(provider)
@@ -36,7 +38,7 @@ const firebaseFunctions = {
         console.log(error);
       });
   },
-  logoutAccount = () => {
+  logoutAccount: () => {
     auth
       .signOut()
       .then(() => {
@@ -47,7 +49,7 @@ const firebaseFunctions = {
       });
     window.location.hash = '';
   },
-  currentUser= () => {
+  currentUser: () => {
     const user = auth.currentUser;
     if (user != null && user.emailVerified) {
       return user;
