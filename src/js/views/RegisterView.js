@@ -45,11 +45,17 @@ export default () => {
       username: registerElement.querySelector('#username').value,
       email: registerElement.querySelector('#register-email').value,
       password: registerElement.querySelector('#register-password').value,
-      confirmedPassword: registerElement.querySelector('#register-password-confirmed').value,
+      confirmedPassword: registerElement.querySelector(
+        '#register-password-confirmed',
+      ).value,
     };
 
     if (userRegistration.password === userRegistration.confirmedPassword) {
-      firebaseFunctions.registerAccount(userRegistration.email, userRegistration.password, userRegistration.username);
+      firebaseFunctions.registerAccount(
+        userRegistration.email,
+        userRegistration.password,
+        userRegistration.username
+      );
     } else {
       console.log('try again');
     }

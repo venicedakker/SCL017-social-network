@@ -1,15 +1,53 @@
+#header-logo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  background-color: var(--yellow);
+  height: 5%;
+}
+
+#chevron-logo {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.chevron-img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 90%;
+}
+
+#logoLS {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 0.8em;
+  align-self: center;
+}
+
+#ls-desktop{
+  display: none;
+}
+
 #feed-section {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-auto-rows: minmax(150px,auto);
+  grid-gap: 10px; 
+  background-color: var(--yellow); 
 }
 
 #navbar-feed {
-  vertical-align: bottom;
+  /* vertical-align:middle; */
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: var(--gray);
+  height: 50px;
+  background-color: var(--light-gray);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #navbar-feed-laptop {
@@ -20,16 +58,20 @@
   margin-left: 5%;
 }
 
-#filter-found {
+ #filter-found {
   background-color: var(--yellow);
-}
+  grid-column: 1/6;
+  grid-row:1/6;
+  
+} 
 
 /* footer {
   position: relative;
 } */
 
 .vector {
-  padding-top: 5%;
+  padding-top: 10%;
+  
 }
 
 #search-bar {
@@ -38,12 +80,13 @@
 
 #post-area {
   margin-top: 5%;
+  display: none;
 }
 
 .search-link {
-  width: 25%;
+  width: 30%;
   height: auto;
-  padding: 2%;
+  padding: 5%;
 }
 
 .redirect {
@@ -52,8 +95,6 @@
   margin: 0 7.3% 0 7.3%;
 }
 
-/* Hacer esto con la grid */
-#search-links {
-  display: flex;
-  flex-direction: wrap;
-}
+
+
+

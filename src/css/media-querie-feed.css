@@ -1,18 +1,52 @@
 @media all and (min-width: 1024px) {
   #search-bar {
     display: block;
+    padding: 10px;
+    background-color: var(--yellow);
   }
   #side-nav {
     grid-column: 3;
+    background-color: var(--yellow);
+    justify-content:flex-end;
+  }
+  .vector{
+    width: 10%;
+    
   }
   #navbar-feed {
     display: none;
   }
+
   #navbar-feed-laptop {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    background-color: var(--yellow);
   }
+
+  #header-logo{
+  width: 100%;
+  background-color: var(--yellow);
+  }
+
+  #chevron-logo{
+    grid-column: 1;
+    width: 45%;
+    background-color: var(--yellow);
+  }
+
+  #logoLS{
+    grid-column: 2;
+    font-size: 1.5em;
+  }
+
+  #filter-found{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
   .redirect {
     color: var(--pink);
     text-decoration: none;
@@ -22,10 +56,7 @@
   }
   .search-link {
     height: 60px;
-    width: 60px;
+    width: auto;
   }
-  #search-bar,
-  #search-links {
-    padding: 20px 0 20px 0;
-  }
+  
 }

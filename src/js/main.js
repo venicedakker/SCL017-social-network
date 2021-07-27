@@ -12,7 +12,7 @@ auth.onAuthStateChanged((user) => {
 
   if (user) {
     // const userActive = firebaseFunctions.currentUser();
-    router("#/feed");
+    router('#/feed');
   } else {
     router(" ");
   }

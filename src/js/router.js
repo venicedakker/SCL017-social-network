@@ -15,7 +15,7 @@ function router(route) {
   content.innerHTML = '';
   switch (route) {
     case '': {
-      title.innerHTML = ("Laboratoria Students");
+      title.innerHTML = ('Laboratoria Students');
       content.appendChild(landingPage());
       break;
     }
@@ -32,7 +32,7 @@ function router(route) {
     }
     case '#/feed': {
       content.appendChild(feedView());
-      footer.style.display = "none";
+      footer.style.display = 'none';
       console.log(user);
       break;
 

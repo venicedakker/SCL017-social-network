@@ -1,5 +1,3 @@
-/* const auth = firebase.auth(); */
-
 const firebaseFunctions = {
   registerAccount: (email, password, username) => {
     auth
@@ -7,21 +5,19 @@ const firebaseFunctions = {
       .then(() => {
         const user = auth.currentUser;
         user.updateProfile({
-          displayName: username
-        })
+          displayName: username,
+        });
         user.sendEmailVerification();
-      })
+      });
       .catch((error) => {
         console.log(error);
         alert(error.message);
-
       });
   },
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
         alert(error.message);
@@ -41,10 +37,10 @@ const firebaseFunctions = {
       });
   },
   logoutAccout: () => {
-
-    auth.signOut()
+    auth
+      .signOut()
       .then(() => {
-        console.log('logout');
+        console.log("logout");
       })
       .catch((error) => {
         console.log(error);
@@ -57,8 +53,7 @@ const firebaseFunctions = {
       return user;
     }
     return null;
-  }
-
+  },
 };
 
 export default firebaseFunctions;

@@ -18,10 +18,7 @@ export default () => {
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     firebaseFunctions.logoutAccout();
- 
   });
 
   return profile;
-
 };
-
