@@ -36,25 +36,49 @@ export default () => {
 
                       <section id="feed-section">
                         <div id="filter-icons">
-                            <div>
-                                <a><img class="search-link" src = "../css/img_app/help.png""></a>
-                                <p>Nombre Aquí</p>
+                            <div id="search-help">
+                                <a><img class="search-help" src = "../css/img_app/help.png""></a>
+                                <p>Ayuda técnica</p>
                             </div>
-                            <div>
-                                <a><img class="search-link" src = "../css/img_app/memes.png""></a>
-                                <p>Nombre Aquí</p>
+                            <div id="search-memes">
+                                <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
+                                <p>Publica y ríete</p>
                             </div>
-                            <div>
-                                <a><img class="search-link" src = "../css/img_app/GHpage.png""></a>
-                                <p>Nombre Aquí</p>
+                            <div id="search-ghpage">
+                                <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
+                                <p>Proyecto Github</p>
                             </div>
-                            <div>
-                                <a><img class="search-link" src = "../css/img_app/resources.png""></a>
-                                <p>Nombre Aquí</p>
+                            <div id="search-resources">
+                                <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
+                                <p>Información útil</p>
                             </div>
-                            <div>
-                                <a><img class="search-link" src = "../css/img_app/team.png""></a>            
-                                <p>Nombre Aquí</p>
+                            <div id="search-team">
+                                <a><img class="search-team" src = "../css/img_app/team.png""></a>            
+                                <p>Encuentra compañera</p>
+                            </div>  
+                        </div>
+                </section>   
+                <section id="feed-section-laptop">
+                        <div id="filter-icons">
+                            <div id="search-help">
+                                <a><img class="search-help" src = "../css/img_app/help.png""></a>
+                                <p>Ayuda técnica</p>
+                            </div>
+                            <div id="search-memes">
+                                <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
+                                <p>Publica y ríete</p>
+                            </div>
+                            <div id="search-ghpage">
+                                <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
+                                <p>Proyecto Github</p>
+                            </div>
+                            <div id="search-resources">
+                                <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
+                                <p>Información útil</p>
+                            </div>
+                            <div id="search-team">
+                                <a><img class="search-team" src = "../css/img_app/team.png""></a>            
+                                <p>Encuentra compañera</p>
                             </div>  
                         </div>
                 </section>   
