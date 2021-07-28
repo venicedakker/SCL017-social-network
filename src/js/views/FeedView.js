@@ -1,4 +1,5 @@
 /* import firebaseFunctions from './js/firebase-functions.js';  */
+import addpostView from './addpostView';
 
 export default () => {
   const feedView = `
@@ -7,7 +8,7 @@ export default () => {
                         <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
                         <a href="#/profile" id="home-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_home.png"></img></a>
                         <a href="#/profile" id="search-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_search.png"></img></a>
-                        <a href="#/profile" id="edit-btn" class="redirect"> <img class="vector" src = "../css/img_app/vector_edit_pink.png"></a>
+                        <a href="#/profile" id="edit-btn" class="editBtn"> <img class="vector" src = "../css/img_app/vector_edit_pink.png"></a>
                         <a href="#/profile" id="profile-btn" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
                     </div>
                 </nav>
@@ -15,7 +16,7 @@ export default () => {
                     <div id="side-nav">
                         
                         <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
-                        <a href="#" id="edit-btn-white" class="redirect"><img class="vector" src = "../css/img_app/vector_edit_white.png"></img></a>
+                        <a href="#" id="edit-btn-white" class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_white.png"></img></a>
                         <a href="#/profile" id="profile-btn-white" class="redirect"><img class="vector" src= "../css/img_app/vector_profile_white.png"> </img></a>
                     </div>
                 </nav>
@@ -81,14 +82,15 @@ export default () => {
                                 <p>Encuentra compañera</p>
                             </div>  
                         </div>
-                </section>   
-                        
+                </section>                       
                         </div>
                     </div>
+                    <div id="modal-addPost">
                     <form id="post-area">
                         <textarea id="new-post"cols="30" rows="10"></textarea>
                         <button type="submit" id="submit-post">Post</button>
                     </form>
+                    </div>
                     <section id="all-posts">    
                     </section> 
                 </section>               
@@ -96,6 +98,7 @@ export default () => {
 
   const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
+  
 
   return feedElement;
 };
