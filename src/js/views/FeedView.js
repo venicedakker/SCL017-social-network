@@ -94,14 +94,8 @@ export default () => {
                 </section>               
             `;
 
-  const feedElement = document.createElement("section");
+  const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
-
-  // const logoutButton = feedElement.querySelector('#logout-btn');
-  // logoutButton.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     firebaseFunctions.logoutAccount();
-  // });
 
   return feedElement;
 };
