@@ -5,7 +5,7 @@ import feedView from './views/feedView.js';
 import profileView from './views/profileView.js';
 
 function router(){
-  const rootContainer = document.getElementById("root");
+  const rootContainer = document.getElementById('root');
 
   const content = {
     "#/landing": landingPage(),
@@ -27,7 +27,7 @@ function router(){
   rootContainer.appendChild(routes[pathname]);
   
   
-  window.addEventListener("hashchange", () => {
+  window.addEventListener('hashchange', () => {
     const hashLocation = window.location.hash;
     rootContainer.innerHTML = "";
     rootContainer.appendChild(content[hashLocation]);
