@@ -3,70 +3,56 @@ import loginView from './views/loginView.js';
 import registerView from './views/registerView.js';
 import feedView from './views/feedView.js';
 import profileView from './views/profileView.js';
-import firebaseFunctions from './firebase-functions.js';
 
-const content = document.getElementById('root');
-const title = document.querySelector('title');
-const footer = document.querySelector('footer');
-const user = firebaseFunctions.currentUser();
+function router(){
+  const rootContainer = document.getElementById("root");
 
-function router(route){
-
-  content.innerHTML = '';
-  switch (route) {
-    case '': {
-      title.innerHTML = ('Laboratoria Students');
-      content.appendChild(landingPage());
-      break;
+  const content = {
+    "#/landing": landingPage(),
+    "#/login": loginView(),
+    "#/register": registerView(),
+    "#/feed": feedView(),
+    "#/profile": profileView(),
+  };
+  
+  const routes = {
+    "/": landingPage(),
+    "/login": loginView(),
+    "/register": registerView(),
+    "/feed": feedView(),
+    "/profile": profileView(),
+  };
+  
+  const pathname = window.location.pathname;
+  rootContainer.appendChild(routes[pathname]);
+  
+  
+  window.addEventListener("hashchange", () => {
+    const hashLocation = window.location.hash;
+    rootContainer.innerHTML = "";
+    rootContainer.appendChild(content[hashLocation]);
+    changeRouteUrl(hashLocation);
+  });
+  
+  window.onpopstate = () => {
+    const newPath = window.location.pathname;
+    rootContainer.innerHTML = "";
+    rootContainer.appendChild(routes[newPath]);
+  };
+  
+  const changeRouteUrl = (hash) => {
+    if (hash === "#/landing") {
+      window.history.replaceState({}, "landing", "/");
+    } else if (hash === "#/login") {
+      window.history.replaceState({}, "login", "/login");
+    } else if (hash === "#/register") {
+      window.history.replaceState({}, "register", "/register");
+    } else if (hash === "#/feed") {
+      window.history.replaceState({}, "feed", "/feed");
+    } else if (hash === "#/profile") {
+      window.history.replaceState({}, "profile", "/profile");
     }
-    case '#/login': {
-      title.innerHTML = 'Login - Laboratoria Students';
-      content.appendChild(loginView());
-      console.log(user);
-      break;
-    }
-    case '#/register': {
-      title.innerHTML = 'Register - Laboratoria Students';
-      content.appendChild(registerView());
-      break;
-    }
-    case '#/feed': {
-      content.appendChild(feedView());
-      footer.style.display = 'none';
-      console.log(user);
-      break;
-
-      // if (user!=null) {
-      //   window.location.hash = '#/feed';
-      //   title.innerHTML = 'Feed - Laboratoria Students';
-      //   content.appendChild(feedView());
-      //   footer.style.display = "none";
-      // } else {
-      //   alert('Check your email to verified account');
-      //   window.location.hash = '#/login';
-      // }
-      // break;
-    }
-
-    case '#/profile': {
-      content.appendChild(profileView());
-      break;
-      // if (user != null) {
-      //   window.location.hash = '#/profile';
-      //   title.innerHTML = 'Profile - Laboratoria Students';
-      //   content.appendChild(profileView());
-      // } else {
-      //   alert('login to see profile')
-      //   window.location.hash = '#/login';
-
-      // }
-      // break;
-    }
-    default: {
-      /* console.log('default here'); */
-      router('');
-      break;
-    }
-  }
+  };
+  
 }
 export { router };
