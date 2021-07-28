@@ -1,5 +1,5 @@
-export default () =>{
-  const modalCreatePost=`
+export default () => {
+  const modalCreatePost = `
                   <div class="modal-container">
                     <nav class="modal modal-close-post">
                       <p class="close">X</p>
@@ -23,9 +23,8 @@ export default () =>{
                   </div>
                         `;
 
-const addPostElement = document.createElement('section');
-  addPostElement.innerHTML= modalCreatePost;
+  const addPostElement = document.createElement('section');
+  addPostElement.innerHTML = modalCreatePost;
 
-  return addPostElement
-}
-  
+  return addPostElement;
+};

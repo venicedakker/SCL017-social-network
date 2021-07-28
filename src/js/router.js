@@ -4,8 +4,7 @@ import registerView from './views/RegisterView.js';
 import feedView from './views/FeedView.js';
 import profileView from './views/ProfileView.js';
 
-
-function router(){
+function router() {
   const rootContainer = document.getElementById('root');
 
   const content = {
