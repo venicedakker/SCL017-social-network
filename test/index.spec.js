@@ -1,8 +1,8 @@
-import landingPage from '../src/js/views/landingPage';
-import loginView from '../src/js/views/loginView';
-import registerView from '../src/js/views/registerView';
-import profileView from '../src/js/views/profileView';
-import feedView from '../src/js/views/feedView';
+import landingPage from '../src/js/views/LandingPage';
+import loginView from '../src/js/views/LoginView';
+import registerView from '../src/js/views/RegisterView';
+import profileView from '../src/js/views/ProfileView';
+import feedView from '../src/js/views/FeedView';
 
 describe('different views created with dynamic html elements', () => {
   it('should return a landing page template', () => {

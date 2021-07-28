@@ -100,11 +100,5 @@ export default () => {
   feedElement.innerHTML = feedView;
   
 
-  // const logoutButton = feedElement.querySelector('#logout-btn');
-  // logoutButton.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     firebaseFunctions.logoutAccount();
-  // });
-
   return feedElement;
 };

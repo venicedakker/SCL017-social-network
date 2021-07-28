@@ -6,9 +6,10 @@ router();
 const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
-   window.location.hash = '#/feed';
+    window.location.hash = '#/feed';
+    // console.log(user);
   } else {
-  window.location.hash = '#/landing';
+    window.location.hash = '#/landing';
   }
 });
 
