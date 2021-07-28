@@ -1,5 +1,5 @@
-/* import firebaseFunctions from './js/firebase-functions.js';  */
-import addpostView from './addpostView';
+// import firebaseFunctions from './js/firebase-functions.js';
+// import addpostView from './addpostView';
 
 export default () => {
   const feedView = `
@@ -98,7 +98,6 @@ export default () => {
 
   const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
-  
 
   return feedElement;
 };

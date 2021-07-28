@@ -25,9 +25,9 @@
     border-color: #56f89a;
   }
   .title-form {
-    margin-right: 50%;
+    /* margin-right: 50%; */
     font-size: 2rem;
-    margin: 2%;
+    margin: 2% 50% 2% 2%;
   }
   /* line break section  */
   #break-section {
