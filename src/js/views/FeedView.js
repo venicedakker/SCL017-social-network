@@ -1,5 +1,5 @@
 /* import firebaseFunctions from './js/firebase-functions.js';  */
-import addpostView from './addpostView';
+
 
 export default () => {
   const feedView = `
@@ -85,11 +85,30 @@ export default () => {
                 </section>                       
                         </div>
                     </div>
-                    <div id="modal-addPost">
-                    <form id="post-area">
-                        <textarea id="new-post"cols="30" rows="10"></textarea>
-                        <button type="submit" id="submit-post">Post</button>
-                    </form>
+                    
+                    <div class="modal-container">
+                    <nav class="modal modal-close-post">
+                      <p class="close">X</p>
+                      <button id="postBtn">Post</button>
+                    </nav>
+                      <div class="contentModal">
+                        <div class="userInfo">
+                        <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
+                        <p>Luisa Ortiz<p>
+                        </div>
+                        <div class="textModal">
+                          <div class="input-field">
+                            <textarea id="writingZone" type="text" cols="30" rows="10" placeholder="Add something you'd like to share"></textarea>                                                  
+                          </div>
+                        </div>
+                        <div class="tool-bar">
+                          <img id="text-icon" class="textIcon" src="../css/img_app/vector_text.png"></img>
+                          <img id="link-icon" class="linkIcon"src="../css/img_app/vector_link.png"></img>
+                          <img id="addImg-icon" class="imgIcon" src="../css/img_app/vector_image.png"></img>
+                        </div>  
+                        </div>
+                    </div>
+
                     </div>
                     <section id="all-posts">    
                     </section> 
@@ -98,13 +117,41 @@ export default () => {
 
   const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
+
+  const addPost= () =>{
+  const openCreatePost = document.getElementsByClassName('.editBtn');
+  const modalContainer = document.getElementsByClassName ('.modal-container');
+  const closeCreatePost = document.getElementsByClassName('.close');
+
+  openCreatePost.addEventListener('click', () => {
+    modalContainer.classList.add('show');
+  });
+
+  closeCreatePost.addEventListener('click', () => {
+    modalContainer.classList.remove('show');
+  });
+  }
+  return addPost
+
+  /* const openCreatePost = () =>{ 
+
+    let modalC = document.querySelectorAll(".editBtn");
+    let modal = document.querySelectorAll(".close");
+
+    document.getElementById('btnRegister').addEventListener('click', function (e) {
+        console.log("open");
+
+         e.preventDefault();
+        modalC.style.opacity = "1";
+        modalC.style.visibility = "visible";
+        modal.classList.toggle("modal-close");
+    });
+
+}
+   */
   
 
-  // const logoutButton = feedElement.querySelector('#logout-btn');
-  // logoutButton.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     firebaseFunctions.logoutAccount();
-  // });
+
 
   return feedElement;
 };

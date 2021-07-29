@@ -1,8 +1,8 @@
-import landingPage from './views/landingPage.js';
-import loginView from './views/loginView.js';
-import registerView from './views/registerView.js';
-import feedView from './views/feedView.js';
-import profileView from './views/profileView.js';
+import landingPage from './views/LandingPage.js';
+import loginView from './views/LoginView.js';
+import registerView from './views/RegisterView.js';
+import feedView from './views/FeedView.js';
+import profileView from './views/ProfileView.js';
 
 function router(){
   const rootContainer = document.getElementById('root');
