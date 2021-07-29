@@ -60,7 +60,7 @@ body {
 }
 
 .button {
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   font-weight: 800;
   height: 52px;
   text-decoration: none;
@@ -110,7 +110,7 @@ footer {
   border-radius: 10px;
   border-color: var(--pink);
   border-width: 3px;
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   margin-bottom: 1em;
   margin-left: 7%;
   margin-top: 7%;
@@ -124,7 +124,7 @@ footer {
   border-radius: 10px;
   border-color: var(--pink);
   border-width: 3px;
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   margin-bottom: 1em;
   margin-left: 10%;
   margin-top: 7%;
@@ -137,7 +137,7 @@ footer {
   border-radius: 10px;
   border-color: var(--green);
   border-width: 3px;
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   margin-top: 10%;
   margin-left: 8%;
   margin-bottom: 5%;
@@ -231,7 +231,7 @@ footer {
     left: -100%;
   }
   45% {
-    left: -100%
+    left: -100%;
   }
   50% {
     left: -200%;

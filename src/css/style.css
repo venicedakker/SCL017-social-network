@@ -8,3 +8,25 @@
 @import "./media-querie-register-login.css";
 @import "./feed-styles.css";
 @import "./media-querie-feed.css";
+
+
+
+/* 
+src/css/colors-fonts.css
+ 15:26  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+
+src/css/feed-styles.css
+ 112:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+
+src/css/landing-page.css
+  63:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+ 113:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+ 127:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+ 140:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+
+src/css/media-querie-register-login.css
+ 30:5  ✖  Unexpected shorthand "margin" after "margin-right"   declaration-block-no-shorthand-property-overrides
+
+src/css/register-login.css
+ 19:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+ 60:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword */

@@ -1,6 +1,5 @@
 /* import firebaseFunctions from './js/firebase-functions.js';  */
 
-
 export default () => {
   const feedView = `
                 <nav id="navbar-feed">
@@ -115,43 +114,8 @@ export default () => {
                 </section>               
             `;
 
-  const feedElement = document.createElement('section');
+  const feedElement = document.createElement("section");
   feedElement.innerHTML = feedView;
-
-  const addPost= () =>{
-  const openCreatePost = document.getElementsByClassName('.editBtn');
-  const modalContainer = document.getElementsByClassName ('.modal-container');
-  const closeCreatePost = document.getElementsByClassName('.close');
-
-  openCreatePost.addEventListener('click', () => {
-    modalContainer.classList.add('show');
-  });
-
-  closeCreatePost.addEventListener('click', () => {
-    modalContainer.classList.remove('show');
-  });
-  }
-  return addPost
-
-  /* const openCreatePost = () =>{ 
-
-    let modalC = document.querySelectorAll(".editBtn");
-    let modal = document.querySelectorAll(".close");
-
-    document.getElementById('btnRegister').addEventListener('click', function (e) {
-        console.log("open");
-
-         e.preventDefault();
-        modalC.style.opacity = "1";
-        modalC.style.visibility = "visible";
-        modal.classList.toggle("modal-close");
-    });
-
-}
-   */
   
-
-
-
   return feedElement;
 };

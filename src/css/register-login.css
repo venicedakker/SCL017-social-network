@@ -16,7 +16,7 @@
   width: 100%;
   border-color: var(--pink);
   border-width: 3px;
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   font-size: 1rem;
   margin-bottom: 1em;
   margin-top: 7%;
@@ -57,7 +57,7 @@
   border-radius: 10px;
   border-color: var(--green);
   border-width: 3px;
-  font-family: "open sans";
+  font-family: 'Open sans', sans-serif;
   margin-top: 10%;
   margin-bottom: 5%;
 }

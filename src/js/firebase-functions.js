@@ -11,18 +11,18 @@ const firebaseFunctions = {
         });
         user.sendEmailVerification();
       })
-      .catch((error) => {
-        console.log(error);
-        alert(error.message);
+      .catch(() => {
+        // console.log(error);
+        // alert(error.message);
       });
   },
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch((error) => {
-        console.log(error);
-        alert(error.message);
+      .catch(() => {
+        // console.log(error);
+        // alert(error.message);
       });
   },
   googleLogin: () => {
@@ -30,22 +30,22 @@ const firebaseFunctions = {
     auth
       .signInWithPopup(provider)
       .then(() => {
-        const user = auth.currentUser;
-        console.log(user);
+        // const user = auth.currentUser;
+        // console.log(user);
         // console.log(result);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        // console.log(error);
       });
   },
   logoutAccount: () => {
     auth
       .signOut()
       .then(() => {
-        console.log('logout');
+        // console.log('logout');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        // console.log(error);
       });
     window.location.hash = '';
   },

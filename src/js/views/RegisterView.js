@@ -57,7 +57,7 @@ export default () => {
         userRegistration.username,
       );
     } else {
-      console.log('try again');
+      // console.log('try again');
     }
   });
 
