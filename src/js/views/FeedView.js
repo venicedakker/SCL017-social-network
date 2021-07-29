@@ -1,5 +1,6 @@
 /* import firebaseFunctions from './js/firebase-functions.js';  */
 
+
 export default () => {
   const feedView = `
                 <nav id="navbar-feed">
@@ -7,7 +8,7 @@ export default () => {
                         <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
                         <a href="#/profile" id="home-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_home.png"></img></a>
                         <a href="#/profile" id="search-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_search.png"></img></a>
-                        <a href="#/profile" id="edit-btn" class="editBtn"> <img class="vector" src = "../css/img_app/vector_edit_pink.png"></a>
+                        <a href="#/profile" id="edit-btn" class="editBtn"> <img class="vector" class="editBtn" src = "../css/img_app/vector_edit_pink.png"></a>
                         <a href="#/profile" id="profile-btn" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
                     </div>
                 </nav>
@@ -15,7 +16,7 @@ export default () => {
                     <div id="side-nav">
                         
                         <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
-                        <a href="#" id="edit-btn-white" class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_white.png"></img></a>
+                        <a href="#" id="edit-btn" class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
                         <a href="#/profile" id="profile-btn-white" class="redirect"><img class="vector" src= "../css/img_app/vector_profile_white.png"> </img></a>
                     </div>
                 </nav>
@@ -84,7 +85,6 @@ export default () => {
                 </section>                       
                         </div>
                     </div>
-                    
                     <div class="modal-container">
                     <nav class="modal modal-close-post">
                       <p class="close">X</p>
@@ -107,6 +107,7 @@ export default () => {
                         </div>  
                         </div>
                     </div>
+                    
 
                     </div>
                     <section id="all-posts">    
@@ -114,8 +115,32 @@ export default () => {
                 </section>               
             `;
 
-  const feedElement = document.createElement("section");
+  const feedElement = document.createElement('section');
   feedElement.innerHTML = feedView;
-  
+  /* const addPostElement = document.createElement('section');
+  feedElement.appendChild(addPostElement);
+  console.log(addPostElement) */
+
+  const openCreatePost = document.querySelector('#editBtn');
+  console.log(openCreatePost); 
+  /* const modalContainer = document.querySelectorAll('.modal-container');
+  console.log(modalContainer)
+  const closeCreatePost = document.querySelectorAll('close'); 
+  console.log(closeCreatePost); */
+/* 
+  openCreatePost.addEventListener('click', () => {
+    modalContainer.classList.add('show');
+  });
+
+  closeCreatePost.addEventListener('click', () => {
+    modalContainer.classList.remove('show');
+  });  */
+   
   return feedElement;
-};
+}
+  
+
+
+  
+  
+
