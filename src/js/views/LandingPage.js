@@ -1,8 +1,9 @@
 export default () => {
   const landingView = `
         <nav id="navbar">
-            <a href="#/login" id="login" class="button" >LOGIN</a>
+        <!-- <a href="#/login" id="login" class="button" >LOGIN</a> -->
             <a href="#/register" id="register" class="button" >REGISTER</a>
+            <a href="#/post" id="post" class="button" >POST</a>
         </nav>
         <main class="main-content"> 
             <section id="landing">
