@@ -14,7 +14,7 @@ function router() {
     '#/register': registerView(),
     '#/feed': feedView(),
     '#/profile': profileView(),
-    '#/post': postView(),
+    '#/post': postView()
   };
 
   const routes = {
@@ -23,37 +23,36 @@ function router() {
     '/register': registerView(),
     '/feed': feedView(),
     '/profile': profileView(),
-    '/post': postView(),
+    '/post': postView()
   };
 
   const pathname = window.location.pathname;
   rootContainer.appendChild(routes[pathname]);
 
+// makes the url pretty
   const changeRouteUrl = (hash) => {
     if (hash === '#/landing') {
       window.history.replaceState({}, 'landing', '/');
     } else if (hash === '#/login') {
       window.history.replaceState({}, 'login', '/login');
-    } else if (hash === '/register') {
+    } else if (hash === '#/register') {
       window.history.replaceState({}, 'register', '/register');
     } else if (hash === '#/feed') {
       window.history.replaceState({}, 'feed', '/feed');
     } else if (hash === '#/profile') {
       window.history.replaceState({}, 'profile', '/profile');
-    }
-    else if (hash === '#/post') {
+    } else if (hash === '#/post') {
       window.history.replaceState({}, 'post', '/post');
     } 
-    
   };
-
+  // Muestra cuando cambia la url muestra el view
   window.addEventListener('hashchange', () => {
     const hashLocation = window.location.hash;
     rootContainer.innerHTML = '';
     rootContainer.appendChild(content[hashLocation]);
     changeRouteUrl(hashLocation);
   });
-
+  // guarda en el historial
   window.onpopstate = () => {
     const newPath = window.location.pathname;
     rootContainer.innerHTML = '';
