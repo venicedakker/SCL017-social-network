@@ -3,7 +3,6 @@ import loginView from './views/LoginView.js';
 import registerView from './views/RegisterView.js';
 import feedView from './views/FeedView.js';
 import profileView from './views/ProfileView.js';
-import postView from './views/PostView.js';
 
 function router() {
   const rootContainer = document.getElementById('root');
@@ -14,7 +13,7 @@ function router() {
     '#/register': registerView(),
     '#/feed': feedView(),
     '#/profile': profileView(),
-    '#/post': postView()
+
   };
 
   const routes = {
@@ -23,7 +22,7 @@ function router() {
     '/register': registerView(),
     '/feed': feedView(),
     '/profile': profileView(),
-    '/post': postView()
+
   };
 
   const pathname = window.location.pathname;
@@ -41,8 +40,6 @@ function router() {
       window.history.replaceState({}, 'feed', '/feed');
     } else if (hash === '#/profile') {
       window.history.replaceState({}, 'profile', '/profile');
-    } else if (hash === '#/post') {
-      window.history.replaceState({}, 'post', '/post');
     } 
   };
   // Muestra cuando cambia la url muestra el view

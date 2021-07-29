@@ -46,7 +46,7 @@ export default () => {
       email: registerElement.querySelector('#register-email').value,
       password: registerElement.querySelector('#register-password').value,
       confirmedPassword: registerElement.querySelector(
-        '#register-password-confirmed',
+        '#register-password-confirmed'
       ).value,
     };
 
@@ -54,12 +54,16 @@ export default () => {
       firebaseFunctions.registerAccount(
         userRegistration.email,
         userRegistration.password,
-        userRegistration.username,
+        userRegistration.username
       );
     } else {
       // console.log('try again');
     }
   });
-
+  // // Changing Title of the page
+  // const title = document.querySelector('title');
+  // title.innerHTML = '';
+  // title.innerHTML = 'Register - Laboratoria Students';
+  
   return registerElement;
 };

@@ -1,138 +1,220 @@
-/* import firebaseFunctions from './js/firebase-functions.js';  */
-
-
 export default () => {
   const feedView = `
-                <nav id="navbar-feed">
-                    <div id="side-nav" >
-                        <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
-                        <a href="#/profile" id="home-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_home.png"></img></a>
-                        <a href="#/profile" id="search-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_search.png"></img></a>
-                        <a href="#/profile" class="editBtn"> <img class="vector" class="editBtn" src = "../css/img_app/vector_edit_pink.png"></a>
-                        <a href="#/profile" id="profile-btn" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
-                    </div>
-                </nav>
-                <nav id="navbar-feed-laptop">
-                    <div id="side-nav">
-                        
-                        <!-- <a href="" id="logout-btn" class="button">LOGOUT</a> -->
-                        <a href="#"  class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
-                        <a href="#/profile" id="profile-btn-white" class="redirect"><img class="vector" src= "../css/img_app/vector_profile_white.png"> </img></a>
-                    </div>
-                </nav>
+  <nav id="navbar-feed">
+    <div id="side-nav" >
+        <a href="#/profile" id="home-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_home.png"></img></a>
+        <a href="#/profile" id="search-btn" class="redirect"><img class="vector" src = "../css/img_app/vector_search.png"></img></a>
+        <a href="#/profile" class="editBtn"> <img class="vector" class="editBtn" src = "../css/img_app/vector_edit_pink.png"></a>
+        <a href="#/profile" id="profile-btn" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
+    </div>
+  </nav>
+  <nav id="navbar-feed-laptop">
+    <div id="side-nav">
+        <a href="#"  class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
+        <a href="#/profile" id="profile-btn-white" class="redirect"><img class="vector" src= "../css/img_app/vector_profile_white.png"> </img></a>
+    </div>
+  </nav>
+  <header id="header-logo">
+  <div id="chevron-logo">
+    <img class="chevron-img" src="../css/img_app/chevronLS.png"</img>
+  </div>
+  <div id="logoLS">
+    <h1>Laboratoria Students</h1>
+  </div>
+  </header>          
+  <div id="filter-found">
+    <div id="search-bar">
+        <input type="text" placeholder="Search here">                        
+    </div>
+  </div>
+  <section id="feed-section">
+    <div id="filter-icons">
+        <div id="search-help">
+            <a><img class="search-help" src = "../css/img_app/help.png""></a>
+            <p>Ayuda técnica</p>
+        </div>
+        <div id="search-memes">
+            <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
+            <p>Publica y ríete</p>
+        </div>
+        <div id="search-ghpage">
+            <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
+            <p>Proyecto Github</p>
+        </div>
+        <div id="search-resources">
+            <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
+            <p>Información útil</p>
+        </div>
+        <div id="search-team">
+            <a><img class="search-team" src = "../css/img_app/team.png""></a>            
+            <p>Encuentra compañera</p>
+        </div>  
+    </div>
+  </section>   
+  <section id="feed-section-laptop">
+        <div id="filter-icons">
+            <div id="search-help">
+                <a><img class="search-help" src = "../css/img_app/help.png""></a>
+                <p>Ayuda técnica</p>
+            </div>
+            <div id="search-memes">
+                <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
+                <p>Publica y ríete</p>
+            </div>
+            <div id="search-ghpage">
+                <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
+                <p>Proyecto Github</p>
+            </div>
+            <div id="search-resources">
+                <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
+                <p>Información útil</p>
+            </div>
+            <div id="search-team">
+                <a><img class="search-team" src = "../css/img_app/team.png""></a>            
+                <p>Encuentra compañera</p>
+            </div>  
+        </div>
+  </section>
 
-                <header id="header-logo">
-                  <div id="chevron-logo">
-                    <img class="chevron-img" src="../css/img_app/chevronLS.png"</img>
-                  </div>
-                  <div id="logoLS">
-                    <h1>Laboratoria Students</h1>
-                  </div>
-                </header>          
-                    <div id="filter-found">
-                        <div id="search-bar">
-                            <input type="text" placeholder="Search here">                        
-                        </div>
-                    </div>
-
-                      <section id="feed-section">
-                        <div id="filter-icons">
-                            <div id="search-help">
-                                <a><img class="search-help" src = "../css/img_app/help.png""></a>
-                                <p>Ayuda técnica</p>
-                            </div>
-                            <div id="search-memes">
-                                <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
-                                <p>Publica y ríete</p>
-                            </div>
-                            <div id="search-ghpage">
-                                <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
-                                <p>Proyecto Github</p>
-                            </div>
-                            <div id="search-resources">
-                                <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
-                                <p>Información útil</p>
-                            </div>
-                            <div id="search-team">
-                                <a><img class="search-team" src = "../css/img_app/team.png""></a>            
-                                <p>Encuentra compañera</p>
-                            </div>  
-                        </div>
-                </section>   
-                <section id="feed-section-laptop">
-                        <div id="filter-icons">
-                            <div id="search-help">
-                                <a><img class="search-help" src = "../css/img_app/help.png""></a>
-                                <p>Ayuda técnica</p>
-                            </div>
-                            <div id="search-memes">
-                                <a><img class="search-memes" src = "../css/img_app/memes.png""></a>
-                                <p>Publica y ríete</p>
-                            </div>
-                            <div id="search-ghpage">
-                                <a><img class="search-ghpage" src = "../css/img_app/GHpage.png""></a>
-                                <p>Proyecto Github</p>
-                            </div>
-                            <div id="search-resources">
-                                <a><img class="search-resources" src = "../css/img_app/resources.png""></a>
-                                <p>Información útil</p>
-                            </div>
-                            <div id="search-team">
-                                <a><img class="search-team" src = "../css/img_app/team.png""></a>            
-                                <p>Encuentra compañera</p>
-                            </div>  
-                        </div>
-                </section>                       
-                        </div>
-                    </div>
-                    <div class="modal-container" >
-                    <nav class="modal modal-close-post">
-                      <p class="close">X</p>
-                      <button id="postBtn">Post</button>
-                    </nav>
-                      <div class="contentModal">
-                        <div class="userInfo">
-                        <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
-                        <p>Luisa Ortiz<p>
-                        </div>
-                        <div class="textModal">
-                          <div class="input-field">
-                            <textarea id="writingZone" type="text" cols="30" rows="10" placeholder="Add something you'd like to share"></textarea>                                                  
-                          </div>
-                        </div>
-                        <div class="tool-bar">
-                          <img id="text-icon" class="textIcon" src="../css/img_app/vector_text.png"></img>
-                          <img id="link-icon" class="linkIcon"src="../css/img_app/vector_link.png"></img>
-                          <img id="addImg-icon" class="imgIcon" src="../css/img_app/vector_image.png"></img>
-                        </div>  
-                        </div>
-                    </div>
-                    
-
-                    </div>
-                    <section id="all-posts">    
-                    </section> 
-                </section>               
+  <section id="all-posts">
+    <form id="post-form">
+      <div class="form-group">
+        <textarea id="text-post" rows="3" class="form-control" placeholder="Crear Publicación"></textarea>
+      </div>
+      <button class="btn-btn-primary" id="btn-post-form">
+        PUBLICAR
+      </button>
+    </form>
+    <div id = "post-container">  </div>
+  </section>        
+  
+  <div class="modal-container" >
+    <nav class="modal modal-close-post">
+      <p class="close">X</p>
+      <button id="postBtn">Post</button>
+    </nav>
+    <div class="contentModal">
+      <div class="userInfo">
+        <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
+        <p>Luisa Ortiz<p>
+      </div>
+      <div class="textModal">
+        <div class="input-field">
+          <textarea id="writingZone" type="text" cols="30" rows="10" placeholder="Add something you'd like to share"></textarea>                                                  
+        </div>
+      </div>
+      <div class="tool-bar">
+        <img id="text-icon" class="textIcon" src="../css/img_app/vector_text.png"></img>
+        <img id="link-icon" class="linkIcon"src="../css/img_app/vector_link.png"></img>
+        <img id="addImg-icon" class="imgIcon" src="../css/img_app/vector_image.png"></img>
+      </div>  
+    </div>
+  </div>            
             `;
 
-  const feedElement = document.createElement('section');
-  feedElement.innerHTML = feedView;
-   
+  const post = document.createElement('section');
+  post.id = 'post-section';
+  post.innerHTML = feedView;
 
-  const openCreatePost = feedElement.querySelector('.editBtn');
-  console.log(openCreatePost);
-  const modalContainer = feedElement.querySelector('.modal-container');
-  console.log(modalContainer)
-  const closeCreatePost = feedElement.querySelector('.close'); 
-  console.log(closeCreatePost);  
- 
-  /* openCreatePost.addEventListener('click', () => {
-    modalContainer.classList.add('show');
+  //-----------------------------------------------------------------
+  // Parte de la dani (posts desde firebase)
+
+  const db = firebase.firestore();
+  const savePost = (text) => db.collection('post').doc().set({ text });
+  const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
+  const getPost = (id) => db.collection('post').doc(id).get();
+  const deletePost = (id) => db.collection('post').doc(id).delete();
+  const UpdatePost = (id, UpdatePost) =>
+    db.collection('post').doc(id).update(UpdatePost);
+
+  document.addEventListener('DOMContentLoaded', async (e) => {
+    const postForm = post.querySelector('#post-form');
+
+    postForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = postForm['text-post'];
+      if (!editStatus) {
+        await savePost(text.value);
+      } else {
+        await UpdatePost(id, {
+          text: text.value,
+        });
+        editStatus = false;
+        id = '';
+        postForm['btn-post-form'].innerText = 'PUBLICAR';
+      }
+      postForm.reset();
+      text.focus();
+      console.log(text);
+    });
+
+    const postContainer = post.querySelector('#post-container');
+    let editStatus = false;
+    let id = '';
+
+    onGetPost((querySnapshot) => {
+      console.log('HRE', postContainer.innerHTML.length);
+      postContainer.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        console.log(post);
+        post.id = doc.id;
+        postContainer.innerHTML += `
+            <div>
+              ${post.text}
+              <div>
+                <button class="btn btn-primary btn-delete" data-id="${post.id}">Delete</button>
+                <button class="btn btn-secondary btn-edit" data-id="${post.id}">edit</button>
+              </div>
+            </div>`;
+
+        const btnsDelete = document.querySelectorAll('.btn-delete');
+        btnsDelete.forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            await deletePost(e.target.dataset.id);
+          });
+        });
+        const btnsEdit = document.querySelectorAll('.btn-edit');
+        btnsEdit.forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const doc = await getPost(e.target.dataset.id);
+            console.log(doc.data());
+            const post = doc.data();
+            editStatus = true;
+            id = doc.id;
+            postForm['text-post'].value = post.text;
+            postForm['btn-post-form'].innerText = 'Update';
+          });
+        });
+      });
+    });
   });
+  //----------------------------------------------------------------
+  // modal de la meri
 
-  closeCreatePost.addEventListener('click', () => {
-    modalContainer.classList.remove('show');
-  });   */
+  // const openCreatePost = post.querySelector('#text-post');
+  // const modalContainer = post.querySelector('.modal-container');
+  // const closeCreatePost = post.querySelector('.close');
   
-  return feedElement;
-}
+
+  // openCreatePost.addEventListener('click', () => {
+  //   modalContainer.style.opacity =  "1";
+  // });
+
+  // closeCreatePost.addEventListener('click', () => {
+  //   modalContainer.style.opacity = "0";
+  // });   
+
+  // // Changing Title of the page
+  // const title = document.querySelector('title');
+  // title.innerHTML = '';
+  // title.innerHTML = 'Feed - Laboratoria Students';
+  // // Sacando el footer
+  // const footer = document.querySelector('footer');
+  // footer.style.display = 'none';
+
+  return post;
+};

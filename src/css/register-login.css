@@ -12,54 +12,27 @@
   border-radius: 10px;
   color: var(--pink);
   background-color: var(--white);
-  padding: 20px;
+  padding: 1rem;
   width: 100%;
   border-color: var(--pink);
-  border-width: 3px;
+  /* border-width: 3px; */
   font-family: 'Open sans', sans-serif;
-  font-size: 1rem;
-  margin-bottom: 1em;
-  margin-top: 7%;
+  font-size: 1.1rem;
+  /* margin-bottom: 1em; */
+  /* margin-top: 7%;*/
 }
-
-/* .login {
-    color: var(--pink);
-    background-color: var(--white);
-    height: 52px;
-    width: 80%;
-    border-radius: 10px;
-    border-color: var(--pink);
-    border-width: 3px;
-    font-family: "open sans";
-    margin-bottom: 1em;
-    margin-left: 7%;
-    margin-top: 7%;
-}
-
-.register-data {
-    color: var(--pink);
-    background-color: var(--white);
-    height: 52px;
-    width: 80%;
-    border-radius: 10px;
-    border-color: var(--pink);
-    border-width: 3px;
-    font-family: "open sans";
-    margin-bottom: 1em;
-    margin-left: 10%;
-    margin-top: 7%;
-} */
 
 .action-google {
   background-color: var(--white);
-  height: 52px;
+  /* height: 52px; */
   width: 100%;
   border-radius: 10px;
   border-color: var(--green);
   border-width: 3px;
   font-family: 'Open sans', sans-serif;
-  margin-top: 10%;
+  /* margin-top: 10%; */
   margin-bottom: 5%;
+  padding: 1rem;
 }
 
 .img-google {
@@ -68,19 +41,20 @@
 }
 
 .line {
-  margin: 0px 20px;
-  width: 35%;
+  /* margin: 0px 20px; */
+  width: 50%;
   border-top: 4px solid var(--pink);
   position: relative;
-  top: 10px;
-  float: left;
+  /* top: 10px; */
+  /* float: left; */
+  /* margin-top: 5%; */
   margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 .or {
   font-weight: bold;
-  float: left;
-  margin-top: 10%;
+  padding: 0 5px 0 5px;
 }
 
 .title-form {
@@ -118,4 +92,13 @@
 #link-redirect:hover {
   text-decoration: underline;
   text-decoration-color: var(--pink);
+}
+
+#break-section {
+  display: flex;
+  flex-direction: row;
+}
+#register-content {
+  display: flex;
+  flex-direction: column;
 }
