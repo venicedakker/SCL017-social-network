@@ -1,9 +1,9 @@
 export default () => {
   const landingView = `
         <nav id="navbar">
-        <!-- <a href="#/login" id="login" class="button" >LOGIN</a> -->
+            <a href="#/login" id="login" class="button" >LOGIN</a>
             <a href="#/register" id="register" class="button" >REGISTER</a>
-            <a href="#/post" id="post" class="button" >POST</a>
+            <!-- <a href="#/post" id="post" class="button" >POST</a> -->
         </nav>
         <main class="main-content"> 
             <section id="landing">
@@ -32,5 +32,11 @@ export default () => {
 
   const landingElement = document.createElement('section');
   landingElement.innerHTML = landingView;
+
+  // // Changing Title of the page
+  // const title = document.querySelector('title');
+  // title.innerHTML = '';
+  // title.innerHTML = 'Laboratoria Students';
+
   return landingElement;
 };

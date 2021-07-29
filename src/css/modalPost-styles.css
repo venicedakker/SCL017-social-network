@@ -81,9 +81,9 @@ nav p {
   width: 25px;
   padding: 10px;
 }
-footer {
+/* footer {
   display: none;
-}
+} */
 
 
 @media all and (min-width: 1024px) {
