@@ -79,7 +79,7 @@ export default () => {
   <section id="all-posts">
     <form id="post-form">
       <div class="form-group">
-        <textarea id="text-post" rows="3" class="form-control" placeholder="Crear Publicación"></textarea>
+        <textarea id="text-area-post" rows="3" class="form-control" placeholder="Crear Publicación"></textarea>
       </div>
       <button class="btn-btn-primary" id="btn-post-form">
         PUBLICAR
@@ -88,26 +88,28 @@ export default () => {
     <div id = "post-container">  </div>
   </section>        
   
-  <div class="modal-container" >
-    <nav class="modal modal-close-post">
-      <p class="close">X</p>
-      <button id="postBtn">Post</button>
-    </nav>
-    <div class="contentModal">
-      <div class="userInfo">
-        <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
-        <p>Luisa Ortiz<p>
-      </div>
-      <div class="textModal">
-        <div class="input-field">
-          <textarea id="writingZone" type="text" cols="30" rows="10" placeholder="Add something you'd like to share"></textarea>                                                  
+  <div class="modal-container" id="modal_container">
+    <div class="modal">
+      <nav class="modal-close">
+        <button id="close"> X </button>
+        <button id="postBtn">Post</button>
+      </nav>
+      <div class="contentModal">
+        <div class="userInfo">
+          <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
+          <p>Luisa Ortiz<p>
         </div>
+        <div class="textModal">
+          <div class="input-field">
+            <textarea id="writingZone" type="text" cols="30" rows="10" placeholder="Add something you'd like to share"></textarea>                                                  
+          </div>
+        </div>
+        <div class="tool-bar">
+          <img id="text-icon" class="textIcon" src="../css/img_app/vector_text.png"></img>
+          <img id="link-icon" class="linkIcon"src="../css/img_app/vector_link.png"></img>
+          <img id="addImg-icon" class="imgIcon" src="../css/img_app/vector_image.png"></img>
+        </div>  
       </div>
-      <div class="tool-bar">
-        <img id="text-icon" class="textIcon" src="../css/img_app/vector_text.png"></img>
-        <img id="link-icon" class="linkIcon"src="../css/img_app/vector_link.png"></img>
-        <img id="addImg-icon" class="imgIcon" src="../css/img_app/vector_image.png"></img>
-      </div>  
     </div>
   </div>            
             `;
@@ -153,11 +155,11 @@ export default () => {
     let id = '';
 
     onGetPost((querySnapshot) => {
-      console.log('HRE', postContainer.innerHTML.length);
+      // console.log('HRE', postContainer.innerHTML.length);
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        console.log(post);
+        // console.log(post);
         post.id = doc.id;
         postContainer.innerHTML += `
             <div>
@@ -172,7 +174,6 @@ export default () => {
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
-
             await deletePost(e.target.dataset.id);
           });
         });
@@ -198,7 +199,6 @@ export default () => {
   // const openCreatePost = post.querySelector('#text-post');
   // const modalContainer = post.querySelector('.modal-container');
   // const closeCreatePost = post.querySelector('.close');
-  
 
   // openCreatePost.addEventListener('click', () => {
   //   modalContainer.style.opacity =  "1";
@@ -206,8 +206,35 @@ export default () => {
 
   // closeCreatePost.addEventListener('click', () => {
   //   modalContainer.style.opacity = "0";
-  // });   
+  // });
 
+  // const openCreatePost = post.querySelector('.editBtn');
+  // console.log(openCreatePost);
+  // const modalContainer = post.querySelector('.modal-container');
+  // console.log(modalContainer)
+  // const closeCreatePost = post.querySelector('.close');
+  // console.log(closeCreatePost);
+
+  //  openCreatePost.addEventListener('click', () => {
+  //   modalContainer.classList.add('show');
+  // });
+
+  // closeCreatePost.addEventListener('click', () => {
+  //   modalContainer.classList.remove('show');
+  // });
+
+  const closeModal = post.querySelector('#close');
+  const modalContainer = post.querySelector('#modal_container');
+  const openModal = post.querySelector('#text-area-post');
+
+  openModal.addEventListener('click',()=>{
+    console.log("open");
+    modalContainer.classList.add('show');
+  });
+  closeModal.addEventListener('click',()=>{
+    console.log("close");
+    modalContainer.classList.remove('show');
+  });
   // // Changing Title of the page
   // const title = document.querySelector('title');
   // title.innerHTML = '';

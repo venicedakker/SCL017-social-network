@@ -1,21 +1,31 @@
 .modal-container {
-  background-color: var(--white);
-  position: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  left: 5%;
-  top: 10%;
-  width: 90%;
-  max-height: max-content;
-  max-width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vh;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.modal-container.show{
-  pointer-events: auto;
+.modal {
+  background-color: var(--white);
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.modal-container.show {
   opacity: 1;
+  pointer-events: auto;
+}
+
+#close{
+  border: none;
+  background-color:none;
 }
 
 .modal-close-post {
@@ -23,9 +33,10 @@
   grid-template-columns: 2;
   margin: 10px;
 }
-nav p {
+/* nav p {
   grid-column: 1;
-}
+} */
+
 #postBtn {
   grid-column: 2;
   width: 50%;
@@ -81,16 +92,14 @@ nav p {
   width: 25px;
   padding: 10px;
 }
-/* footer {
-  display: none;
-} */
+
 
 
 @media all and (min-width: 1024px) {
-  .modal-container {
+  /* .modal-container {
     width: 50%;
     left: 25%;
-  }
+  } */
   #postBtn {
     width: 25%;
     position: relative;
