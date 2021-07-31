@@ -38,5 +38,8 @@ export default () => {
   // title.innerHTML = '';
   // title.innerHTML = 'Laboratoria Students';
 
+    // making sure the footer is on display
+    const footer = document.querySelector('footer');
+    footer.style.display = 'block';
   return landingElement;
 };
