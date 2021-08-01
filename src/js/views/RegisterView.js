@@ -4,7 +4,6 @@ export default () => {
   const registerView = `
         <div class="new-colors">
         <div class="container">
-            <section id="register-content" >
                 <form id="register-form">
                     <h1 class="title-form">Register</h1>
                     <input class="input-data" type="text" id="username" placeholder="Username" required>
@@ -26,7 +25,6 @@ export default () => {
                 <a href="#/login" id="link-redirect"> Ingresa aquí </a>
                 </h3>
                 </div>
-            </section>
         </div>
             `;
 

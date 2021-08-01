@@ -4,9 +4,8 @@ export default () => {
   const loginView = `
          <div class="new-colors">
          <div class="container">
-            <section id="login-content">
                 <form id="login-form">
-                    <h1 class="title-form">Log in</h1> <br>
+                    <h1 class="title-form">Log in</h1>
                     <input class="input-data" type="email" id="login-email" placeholder="Enter Email" required>
                     <input class="input-data" type="password" id="login-password" placeholder="Enter Password" required>
                     <button class="action-btn" type="submit" id="login-btn">LOGIN</button>
@@ -24,7 +23,6 @@ export default () => {
                 <a href="#/register" id="link-redirect"> Registrate aquí </a>
                 </h3>
                
-            </section>
             </div>
         </div>
         `;

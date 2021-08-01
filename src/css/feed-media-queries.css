@@ -1,0 +1,131 @@
+@media all and (min-width: 1024px) {
+  #search-bar {
+    display: block;
+    padding: 10px;
+    background-color: var(--yellow);
+  }
+
+  #side-nav {
+    grid-column: 3;
+    background-color: var(--yellow);
+    width: 40%;
+    justify-self: flex-end;
+  }
+  
+  .vector {
+    width: 20%;
+  }
+  
+  #navbar-feed {
+    display: none;
+  }
+
+  #navbar-feed-laptop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    background-color: var(--yellow);
+  }
+
+  #header-logo {
+    width: 100%;
+    background-color: var(--yellow);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  #chevron-logo {
+    grid-column: 1;
+    width: 45%;
+    background-color: var(--yellow);
+  }
+
+  #logoLS {
+    grid-column: 2;
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  #filter-found {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  /* .redirect {
+    color: var(--pink);
+    text-decoration: none;
+    font-family: "open sans";
+    font-weight: 800;
+    margin: 0 7.3% 0 7.3%;
+    width: 100%;
+  } */
+  /* .search-link {
+    height: 60px;
+    width: auto; 
+} */
+
+  #feed-section-laptop {
+    display: block;
+    background-color: var(--yellow);
+  }
+  
+  #filter-icons {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 10px;
+  }
+
+  .search-help,
+  #search-help {
+    width: 60%;
+    grid-column: 3;
+    justify-self: center;
+    text-align: center;
+  }
+  
+  .search-memes,
+  #search-memes {
+    width: 60%;
+    grid-column: 4;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .search-ghpage,
+  #search-ghpage {
+    width: 60%;
+    grid-column: 5;
+    grid-row: 1;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .search-resources,
+  #search-resources {
+    width: 60%;
+    grid-column: 6;
+    grid-row: 1;
+    justify-self: center;
+    text-align: center;
+  }
+  
+  .search-team,
+  #search-team {
+    width: 60%;
+    grid-column: 7;
+    grid-row: 1;
+    justify-self: center;
+    text-align: center;
+  }
+
+  #feed-section {
+    display: none;
+  }
+
+  /* footer {
+    display: none;
+  } */
+}
