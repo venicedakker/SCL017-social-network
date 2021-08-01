@@ -1,10 +1,9 @@
 .container {
   width: 100%;
-  /* padding: 1.5rem; */
 }
 
-#login-form, #register-form {
-  /* text-align: center; */
+#login-form,
+#register-form {
   padding: 5%;
   width: 80%;
 }
@@ -26,7 +25,6 @@
   padding: 12px;
   width: 102%;
   border-color: var(--pink);
-  /* border-width: 3px; */
   font-family: 'Open sans', sans-serif;
   font-size: 1.1rem;
   margin-bottom: 1em;
@@ -80,9 +78,6 @@
 
 .enter {
   text-align: center;
-  /* margin-left: 9%;
-  margin-right: 9%;
-  margin-bottom: 5%; */
   font-family: 'Bitter', sans-serif;
 }
 
@@ -102,71 +97,8 @@
   display: flex;
   justify-content: center;
 }
+
 #register-content {
   display: flex;
   flex-direction: column;
 }
-/* ----- */
-
-/* .login {
-  color: var(--pink);
-  background-color: var(--white);
-  height: 52px;
-  width: 80%;
-  border-radius: 10px;
-  border-color: var(--pink);
-  border-width: 3px;
-  font-family: 'Open sans', sans-serif;
-  margin-bottom: 1em;
-  margin-left: 7%;
-  margin-top: 7%;
-} */
-
-/* .register-data {
-  color: var(--pink);
-  background-color: var(--white);
-  height: 52px;
-  width: 80%;
-  border-radius: 10px;
-  border-color: var(--pink);
-  border-width: 3px;
-  font-family: 'Open sans', sans-serif;
-  margin-bottom: 1em;
-  margin-left: 10%;
-  margin-top: 7%;
-} */
-
-/* .login-google {
-  background-color: var(--white);
-  height: 52px;
-  width: 80%;
-  border-radius: 10px;
-  border-color: var(--green);
-  border-width: 3px;
-  font-family: 'Open sans', sans-serif;
-  margin-top: 10%;
-  margin-left: 8%;
-  margin-bottom: 5%;
-} */
-
-/* .img-google {
-  width: 10%;
-  vertical-align: middle;
-} */
-
-/* .register {
-  margin-left: 9%;
-  margin-bottom: 5%;
-  margin-top: 5%;
-} */
-
-/* .login-password {
-  margin-left: 5%;
-  margin-bottom: 5%;
-  margin-top: 5%;
-} */
-
-/* .enter {
-  margin-left: 11%;
-  margin-bottom: 5%;
-} */

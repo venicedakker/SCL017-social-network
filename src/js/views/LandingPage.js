@@ -37,15 +37,6 @@ export default () => {
   const landingElement = document.createElement('section');
   landingElement.id = "landing-section";
   landingElement.innerHTML = landingView;
-
-  // // Changing Title of the page
-  // const title = document.querySelector('title');
-  // title.innerHTML = '';
-  // title.innerHTML = 'Laboratoria Students';
-
-    // making sure the footer is on display
-    // const footer = document.querySelector('footer');
-    // footer.style.display = 'block';
     
     return landingElement;
 };

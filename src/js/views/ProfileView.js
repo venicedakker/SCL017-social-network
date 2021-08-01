@@ -20,9 +20,5 @@ export default () => {
     firebaseFunctions.logoutAccount();
   });
 
-  // // Changing Title of the page
-  // const title = document.querySelector('title');
-  // title.innerHTML = '';
-  // title.innerHTML = 'Profile - Laboratoria Students';
   return profile;
 };

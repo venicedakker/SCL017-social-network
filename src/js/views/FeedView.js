@@ -221,14 +221,5 @@ export default () => {
     modalContainer.classList.remove('show');
   });
 
-  // // Changing Title of the page
-  // const title = document.querySelector('title');
-  // title.innerHTML = '';
-  // title.innerHTML = 'Feed - Laboratoria Students';
-
-  // Sacando el footer
-  // const footer = document.querySelector('footer');
-  // footer.style.display = 'none';
-
   return post;
 };
