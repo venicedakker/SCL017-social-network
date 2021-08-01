@@ -44,10 +44,5 @@ export default () => {
     firebaseFunctions.loginAccount(email, password);
   });
 
-  // // Changing Title of the page
-  // const title = document.querySelector('title');
-  // title.innerHTML = '';
-  // title.innerHTML = 'Login - Laboratoria Students';
-
   return loginElement;
 };

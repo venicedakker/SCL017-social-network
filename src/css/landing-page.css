@@ -28,7 +28,6 @@ body {
 }
 
 .main-content {
-  /* background-color: var(--yellow); */
   position: relative;
 }
 
@@ -54,26 +53,21 @@ body {
 #img-background {
   background-image: url(./img_app/girlscoding.png);
   background-size: cover;
-  /* width: 100%; */
   width: 175px;
   height: auto;
   padding: 30%;
-  /* position: fixed; */
   top: 34%;
-  /* left: 0.1%; */
 }
 
 .button {
   font-family: 'Open sans', sans-serif;
   font-weight: 800;
-  /* height: 52px; */
   text-decoration: none;
   border-style: solid;
   border-radius: 10px;
   border-color: var(--pink);
   border-width: 3px;
   text-align: center;
-  /* padding-top: 12px; */
   padding: 12px;
 }
 
@@ -89,14 +83,17 @@ body {
 
 footer {
   background-color: var(--yellow);
-  /* display: grid; */
   padding-top: 5px;
   width: 100%;
   height: 25px;
   position: absolute;
-  /* top: 96%; */
   bottom: 0;
   text-align: center;
+}
+
+footer.scrolling{
+  position: relative;
+  margin-top: 50%;   
 }
 
 #slider {

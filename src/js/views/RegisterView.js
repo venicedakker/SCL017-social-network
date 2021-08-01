@@ -58,10 +58,6 @@ export default () => {
       // console.log('try again');
     }
   });
-  // // Changing Title of the page
-  // const title = document.querySelector('title');
-  // title.innerHTML = '';
-  // title.innerHTML = 'Register - Laboratoria Students';
-  
+
   return registerElement;
 };
