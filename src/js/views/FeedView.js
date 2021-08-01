@@ -157,7 +157,7 @@ export default () => {
       }
       postForm.reset();
       text.focus();
-      console.log(text);
+      // console.log(text);
     });
 
     const postContainer = post.querySelector('#post-container');
@@ -192,7 +192,7 @@ export default () => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
             const doc = await getPost(e.target.dataset.id);
-            console.log(doc.data());
+            // console.log(doc.data());
             const post = doc.data();
             editStatus = true;
             id = doc.id;
@@ -227,8 +227,8 @@ export default () => {
   // title.innerHTML = 'Feed - Laboratoria Students';
 
   // Sacando el footer
-  const footer = document.querySelector('footer');
-  footer.style.display = 'none';
+  // const footer = document.querySelector('footer');
+  // footer.style.display = 'none';
 
   return post;
 };

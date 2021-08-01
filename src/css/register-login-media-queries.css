@@ -1,0 +1,58 @@
+@media all and (min-width: 1024px) {
+  .container {
+    text-align: center;
+    border-style: solid;
+    width: 60%;
+    margin: 10% 25%;
+    border-color: #56f89a;
+  }
+
+  #login-form, #register-form {
+    width: 90%;
+  }
+  
+  .input-data {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .enter{
+    margin: 5%;
+  }
+
+  .action-btn {
+    width: 53%;
+    /* margin-top: 3%; */
+    padding: 15px 10px 15px 10px;
+  }
+  
+  .action-google {
+        /* height: 50%; */
+        width: 50%;
+        padding: 8px 0 8px 0;
+  }
+  
+  .title-form {
+    /* margin-right: 50%; */
+    font-size: 2rem;
+    margin: 2% 50% 5% 2%;
+  }
+  
+  /* line break section  */
+  /* #break-section {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+  } */
+  
+  /* .or {
+        margin-top: 2%;
+    } */
+  
+    /* .line {
+        width: 20%;
+        margin-top: 3%;
+        left: 26%;
+        margin-bottom: 2%;
+    } */
+}
