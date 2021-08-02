@@ -180,13 +180,13 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-                <p>${user.displayName}
-                </p>
+                
               </div>
               <p class = "each-text">
                 ${post.text}
               </p>  
-              <div>
+              <div class="interaction-bar">
+                <img class="like-btn" src="../css/img_app/vector_like.png"></img>
                 <img class="btn-edit secondary" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
                 <img class="btn-delete primary" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
               </div>

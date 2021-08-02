@@ -56,6 +56,7 @@
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
+  justify-items: center;
 }
 
 .form-control {
@@ -63,11 +64,12 @@
   width: 77%;
   text-align: center;
   font-size: 1rem;
-  border-radius: 20px;
+  border-radius: 8px;
 }
 
-.btn-posting {
-  width: 20%;
+ .btn-posting {
+   display: none;
+  /* width: 20%;
   background-color: var(--white);
   color: var(--pink);
   font-family: 'Open Sans', sans-serif;
@@ -76,8 +78,8 @@
   font-size: 1rem;
   font-weight: 900;
   border-color: var(--pink);
-  border-radius: 12px;
-}
+  border-radius: 12px; */
+} 
 
 #post-container {
   /* width: 80%; */
@@ -118,6 +120,10 @@
 .btn-edit {
   color: var(--white);
   background-color: var(--white);
+}
+
+.like-btn{
+  width: 40px;
 }
 
 /* Seccion de los filtros */

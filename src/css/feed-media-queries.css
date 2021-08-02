@@ -31,7 +31,8 @@
     /* background-color: var(--yellow); */
   }
   #finder {
-    border-radius: 50px;
+    border-radius: 8px;
+    border: 0;
     text-align: center;
     height: 40px;
     width: 50%;
@@ -142,4 +143,22 @@
     width: 25%;
     left: 65%;
   }
+
+  /* CUADRO DE POST Y LISTADO DE POST */
+
+#post-form1{
+display: grid;
+width: 60%;
+}
+
+.interaction-bar{
+  display: grid;
+  grid-template-columns: 12fr 1fr 1fr;
+  align-items: end;
+}
+
+.like-btn{
+  width: 30px;
+  margin-left: 20px;
+}
 }
