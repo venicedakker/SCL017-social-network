@@ -1,21 +1,12 @@
 @media all and (min-width: 1024px) {
-  #search-bar {
-    display: block;
-    padding: 10px;
-    background-color: var(--yellow);
+  #post-section {
+    width: 100%;
   }
 
-  #side-nav {
-    grid-column: 3;
-    background-color: var(--yellow);
-    width: 40%;
-    justify-self: flex-end;
+  #post-container {
+    width: 80%;
   }
-  
-  .vector {
-    width: 20%;
-  }
-  
+
   #navbar-feed {
     display: none;
   }
@@ -24,7 +15,36 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
+    /* background-color: var(--yellow); */
+  }
+
+  #feed-section-laptop {
+    display: block;
     background-color: var(--yellow);
+    padding: 25px;
+  }
+
+  #search-bar {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    /* background-color: var(--yellow); */
+  }
+  #finder {
+    border-radius: 50px;
+    text-align: center;
+    height: 40px;
+    width: 50%;
+  }
+
+  #side-nav {
+    grid-column: 3;
+    width: 40%;
+    justify-self: flex-end;
+  }
+
+  .vector {
+    width: 20%;
   }
 
   #header-logo {
@@ -46,31 +66,6 @@
     text-align: center;
   }
 
-  #filter-found {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  /* .redirect {
-    color: var(--pink);
-    text-decoration: none;
-    font-family: "open sans";
-    font-weight: 800;
-    margin: 0 7.3% 0 7.3%;
-    width: 100%;
-  } */
-  /* .search-link {
-    height: 60px;
-    width: auto; 
-} */
-
-  #feed-section-laptop {
-    display: block;
-    background-color: var(--yellow);
-  }
-  
   #filter-icons {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -85,7 +80,7 @@
     justify-self: center;
     text-align: center;
   }
-  
+
   .search-memes,
   #search-memes {
     width: 60%;
@@ -111,7 +106,7 @@
     justify-self: center;
     text-align: center;
   }
-  
+
   .search-team,
   #search-team {
     width: 60%;
@@ -124,8 +119,13 @@
   #feed-section {
     display: none;
   }
-
-  /* footer {
-    display: none;
-  } */
+  /* MODAL */
+  .modal-container {
+    justify-content: space-around;
+  }
+  
+  #btn-post-form {
+    width: 25%;
+    left: 65%;
+  }
 }

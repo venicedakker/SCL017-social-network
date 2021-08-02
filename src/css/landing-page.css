@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-rows: max-content;
   letter-spacing: 2px;
+  font-family: 'Bitter', sans-serif;
 }
 
 #navbar {
@@ -91,9 +92,9 @@ footer {
   text-align: center;
 }
 
-footer.scrolling{
+footer.scrolling {
   position: relative;
-  margin-top: 50%;   
+  margin-top: 50%;
 }
 
 #slider {
