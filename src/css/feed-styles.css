@@ -60,7 +60,7 @@
 
 .form-control {
   margin-top: 5%;
-  width: 90%;
+  width: 77%;
   text-align: center;
   font-size: 1rem;
   border-radius: 20px;
@@ -100,13 +100,13 @@
 
 .btn-delete,
 .btn-edit {
-  width: 20%;
+  width: 20px;
   font-family: 'Open Sans', sans-serif;
   padding: 2%;
   margin: 3%;
   font-size: 1rem;
   font-weight: 900;
-  border-color: var(--pink);
+  /* border-color: var(--pink); */
   border-radius: 12px;
 }
 
@@ -117,7 +117,7 @@
 
 .btn-edit {
   color: var(--white);
-  background-color: var(--pink);
+  background-color: var(--white);
 }
 
 /* Seccion de los filtros */
