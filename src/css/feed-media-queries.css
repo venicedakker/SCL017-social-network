@@ -43,6 +43,10 @@
     justify-self: flex-end;
   }
 
+  .editBtn{
+    display: none;
+  }
+
   .vector {
     width: 20%;
   }
@@ -121,7 +125,17 @@
   }
   /* MODAL */
   .modal-container {
-    justify-content: space-around;
+    justify-content: center;
+  }
+
+  .modal-container.show{
+    width: 100%;
+    height: 90%;
+    
+  }
+
+  .modal{
+    left: 0%;
   }
   
   #btn-post-form {

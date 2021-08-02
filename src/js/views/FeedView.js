@@ -1,4 +1,5 @@
 export default () => {
+  const user = firebase.auth().currentUser;
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -177,13 +178,17 @@ export default () => {
         // console.log(post);
         post.id = doc.id;
         postContainer.innerHTML += `
-            <div class='each-post'>
+            <div class="each-post">
+              <div clas="each-infoUser">
+                <p>${user.displayName}
+                </p>
+              </div>
               <p class = "each-text">
                 ${post.text}
               </p>  
               <div>
-                <button class="btn-edit secondary" data-id="${post.id}">Edit</button>
-                <button class="btn-delete primary" data-id="${post.id}">Delete</button>
+                <img class="btn-edit secondary" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
+                <img class="btn-delete primary" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
               </div>
             </div>`;
 
