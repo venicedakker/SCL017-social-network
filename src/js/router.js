@@ -28,8 +28,9 @@ function router() {
   const pathname = window.location.pathname;
   rootContainer.appendChild(routes[pathname]);
 
-// makes the url pretty
-  const changeRouteUrl = (hash) => {
+
+  // makes the url pretty  
+const changeRouteUrl = (hash) => {
     if (hash === '#/landing') {
       window.history.replaceState({}, 'landing', '/');
     } else if (hash === '#/login') {
@@ -42,6 +43,7 @@ function router() {
       window.history.replaceState({}, 'profile', '/profile');
     } 
   };
+  
   // Muestra cuando cambia la url muestra el view
   window.addEventListener('hashchange', () => {
     const hashLocation = window.location.hash;
@@ -49,6 +51,7 @@ function router() {
     rootContainer.appendChild(content[hashLocation]);
     changeRouteUrl(hashLocation);
   });
+
   // guarda en el historial
   window.onpopstate = () => {
     const newPath = window.location.pathname;

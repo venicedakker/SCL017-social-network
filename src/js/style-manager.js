@@ -1,7 +1,7 @@
-function someStyling(path, footer, titleDoc) {
 
+function someStyling(path, footer, titleDoc) {
   titleDoc.innerHTML = '';
-// Agregamos stilos dependientes de la ruta 
+  // Agregamos stilos dependientes de la ruta
   switch (path) {
     case '/':
       footer.style.display = 'block';
@@ -22,6 +22,12 @@ function someStyling(path, footer, titleDoc) {
     case '/feed':
       footer.style.display = 'none';
       titleDoc.innerHTML = 'Feed - Laboratoria Students';
+
+      // if (firebaseFunctions.loginUser()) {
+      //   window.location.hash = '#/feed';
+      // } else {
+      //   window.location.hash = '#/landing';
+      // }
       break;
 
     case '/profile':

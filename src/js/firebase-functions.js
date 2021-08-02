@@ -49,13 +49,14 @@ const firebaseFunctions = {
       });
     window.location.hash = '';
   },
-  currentUser: () => {
+  userInfo: () => {
     const user = auth.currentUser;
-    if (user != null && user.emailVerified) {
+    if (user != null) {
       return user;
+    } else {
+      return 'no hay usuario';
     }
-    return null;
-  },
+  }
 };
 
 export default firebaseFunctions;

@@ -223,6 +223,7 @@ export default () => {
   const modalContainer = post.querySelector('#modal_container');
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
+  
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
   });
