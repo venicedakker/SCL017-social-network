@@ -15,8 +15,7 @@ window.addEventListener('hashchange', () => {
 const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
-    window.location.hash = '#/feed';
-    // console.log(user);
+    const userInfo = user;
   } else {
     window.location.hash = '#/landing';
   }
