@@ -1,5 +1,6 @@
 import { someStyling } from './style-manager.js';
 import { router } from './router.js';
+import firebaseFunctions from './firebase-functions.js';
 
 // Manejo de las rutas
 router();
@@ -16,8 +17,11 @@ const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
     const userInfo = user;
+    // window.location.hash = '#/feed';
+    console.log(firebaseFunctions.userInfo());
   } else {
     window.location.hash = '#/landing';
+    console.log(firebaseFunctions.userInfo());
   }
 });
 
