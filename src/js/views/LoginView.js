@@ -30,11 +30,13 @@ export default () => {
   // Debo crear un elemento para hacer el append del mismo en el root
   const loginElement = document.createElement('section');
   loginElement.innerHTML = loginView;
+
   // Funcionalidad del boton de Google
   const googleButton = loginElement.querySelector('#loginGoogle');
   googleButton.addEventListener('click', () => {
     firebaseFunctions.googleLogin();
   });
+  
   // funcionalidad del login sin google
   const loginForm = loginElement.querySelector('#login-form');
   loginForm.addEventListener('submit', (e) => {
