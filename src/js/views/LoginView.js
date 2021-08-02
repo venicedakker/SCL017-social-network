@@ -4,7 +4,7 @@ export default () => {
   const loginView = `
          <div class="new-colors">
          <div class="container">
-                <form id="login-form">
+                <form id="login-form" action="#/feed" method="post">
                     <h1 class="title-form">Log in</h1>
                     <input class="input-data" type="email" id="login-email" placeholder="Enter Email" required>
                     <input class="input-data" type="password" id="login-password" placeholder="Enter Password" required>
