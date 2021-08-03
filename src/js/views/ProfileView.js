@@ -1,11 +1,24 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-  let user = firebaseFunctions.userInfo();
+const user = firebaseFunctions.userInfo;
+  // let user = obs;
+  // if(user){}
+
   const profileView = `
     <div class="profile-post">
-      <a href="#/feed" id="profile" class="btn-profile" >Feed</a>
-      <a href="" id="logout-btn" class="btn-profile">LOGOUT</a>
+      <div id="logo-nav">
+        <h1 class="students"> 
+          <span class="chevron left"></span> 
+            LS
+          <span class="chevron right"></span> 
+        </h1>
+      </div>
+      <div>
+        <a href="#/feed" id="profile" class="btn-profile" >Feed</a>
+        <a href="" id="logout-btn" class="btn-profile">LOGOUT</a>
+      </div>
+      
     </div>
       
     <div id="user-info">
@@ -30,6 +43,6 @@ export default () => {
     e.preventDefault();
     firebaseFunctions.logoutAccount();
   });
-// <!-- ${firebase.auth().currentUser.displayName} -->
+  // <!-- ${firebase.auth().currentUser.displayName} -->
   return profile;
 };
