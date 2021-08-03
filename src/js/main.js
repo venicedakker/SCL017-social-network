@@ -17,15 +17,24 @@ const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
     const userInfo = user;
-
     window.location.hash = '#/feed';
-
+    console.log(user);
   } else {
     window.location.hash = '#/landing';
     console.log(firebaseFunctions.userInfo());
   }
 });
 
+//  export const obs = () => {
+//   auth.onAuthStateChanged((user) => {
+//     if (user) {
+//       return user;
+//     } else {
+//       window.location.hash = '#/landing';
+//       console.log(firebaseFunctions.userInfo());
+//     }
+//   });
+// }
 // // obtengo los valores de la coleccion usuario
 // // const getUsers = () => firebase.firestore().collection('users').get();
 
