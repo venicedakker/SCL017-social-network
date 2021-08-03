@@ -114,7 +114,7 @@ export default () => {
             </div>
             <div class="textModal">
               <div class="input-field">
-                <textarea id="text-post" rows="3" class="form-control" placeholder=""></textarea>
+                <textarea id="text-post" rows="3" class="form-control" placeholder="¿Qué quieres compartir?"></textarea>
             </div>
           </div>
         </form>
@@ -229,7 +229,7 @@ export default () => {
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
     userInfo.innerHTML+=`
-    <p>¿Qué quieres compartir, ${firebase.auth().currentUser.displayName}?
+    <p> ${firebase.auth().currentUser.displayName}
     `
   });
   closeModal.addEventListener('click', () => {
@@ -238,6 +238,7 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
+
 
 
   
