@@ -168,6 +168,7 @@ export default () => {
     const postContainer = post.querySelector('#post-container');
     let editStatus = false;
     let id = '';
+    
 
     onGetPost((querySnapshot) => {
       // console.log('HRE', postContainer.innerHTML.length);
@@ -185,11 +186,14 @@ export default () => {
                 ${post.text}
               </p>  
               <div class="interaction-bar">
-                <img class="like-btn" src="../css/img_app/vector_like.png"></img>
+                <img class="likeBtn" id="likeBtn" src="../css/img_app/vector_like.png"></img>
                 <img class="btn-edit secondary" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
                 <img class="btn-delete primary" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
               </div>
             </div>`;
+
+            
+            
 
         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach((btn) => {
@@ -223,8 +227,6 @@ export default () => {
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
   const userInfo = post.querySelector('#userInfo');
-   
-  
 
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
@@ -238,7 +240,6 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
-
 
 
   
