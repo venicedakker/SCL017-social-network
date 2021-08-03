@@ -165,10 +165,10 @@ export default () => {
         });
         editStatus = false;
         id = '';
-        postForm['btn-post-form'].innerText = 'PUBLICAR';
+        /* postForm['btn-post-form'].innerText = 'PUBLICAR'; */
       }
       postForm.reset();
-      text.focus();
+      /* text.focus(); */
       // console.log(text);
     });
 
@@ -233,7 +233,7 @@ export default () => {
   const modalContainer = post.querySelector('#modal_container');
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
-  const userInfo = post.querySelector('#userInfo');
+  
 
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');

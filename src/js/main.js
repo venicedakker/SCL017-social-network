@@ -17,7 +17,7 @@ const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
     const userInfo = user;
-
+    console.log(userInfo);
     window.location.hash = '#/feed';
 
   } else {
