@@ -1,5 +1,5 @@
 export default () => {
-  const user = firebase.auth().currentUser;
+  
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -108,14 +108,13 @@ export default () => {
             <button id="close"> X </button>
             <button  id="btn-post-form">Post</button>
           </nav>
-          <div class="contentModal">
-            <div class="userInfo">
+          <div id="personalInfo">
+            <div id="userInfo">
               <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
-              <p>Luisa Ortiz<p>
             </div>
             <div class="textModal">
               <div class="input-field">
-                <textarea id="text-post" rows="3" class="form-control" placeholder="Crear Publicación"></textarea>
+                <textarea id="text-post" rows="3" class="form-control" placeholder=""></textarea>
             </div>
           </div>
         </form>
@@ -180,7 +179,7 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-                
+              <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
               </div>
               <p class = "each-text">
                 ${post.text}
@@ -223,9 +222,15 @@ export default () => {
   const modalContainer = post.querySelector('#modal_container');
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
+  const userInfo = post.querySelector('#userInfo');
+   
   
+
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
+    userInfo.innerHTML+=`
+    <p>¿Qué quieres compartir, ${firebase.auth().currentUser.displayName}?
+    `
   });
   closeModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
@@ -233,6 +238,9 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
+
+
+  
 
   return post;
 };
