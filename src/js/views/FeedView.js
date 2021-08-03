@@ -1,5 +1,7 @@
+import firebaseFunctions from '../firebase-functions.js';
+
 export default () => {
-  
+  let user = firebaseFunctions.userInfo();
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -110,7 +112,12 @@ export default () => {
           </nav>
           <div id="personalInfo">
             <div id="userInfo">
-              <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img>              
+              <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img> 
+              
+              <p>
+               ${user.displayName}
+              </p>
+                           
             </div>
             <div class="textModal">
               <div class="input-field">
@@ -230,9 +237,7 @@ export default () => {
 
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
-    userInfo.innerHTML+=`
-    <p> ${firebase.auth().currentUser.displayName}
-    `
+ 
   });
   closeModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
