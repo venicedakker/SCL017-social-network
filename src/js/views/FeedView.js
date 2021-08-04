@@ -136,6 +136,17 @@ export default () => {
   </div>            
             `;
 
+// funcion de fecha 
+
+  const getDate = () => {
+    const hoy = new Date();
+    const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    const fechaYHora = fecha + ' ' + hora;
+  
+    return fechaYHora;
+  }
+
   const post = document.createElement('section');
   post.id = 'post-section';
   post.innerHTML = feedView;
@@ -144,7 +155,7 @@ export default () => {
   // Postear con firebase
 
   const db = firebase.firestore();
-  const savePost = (text) => db.collection('post').doc().set({ text });
+  const savePost = (text, date) => db.collection('post').doc().set({ text, date });
   const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
@@ -158,7 +169,7 @@ export default () => {
       e.preventDefault();
       const text = postForm['text-post'];
       if (!editStatus) {
-        await savePost(text.value);
+        await savePost(text.value , getDate());
       } else {
         await UpdatePost(id, {
           text: text.value,
@@ -190,6 +201,7 @@ export default () => {
               </div>
               <p class = "each-text">
                 ${post.text}
+                ${post.date}
               </p>  
               <div class="interaction-bar">
                 <img class="like-btn" src="../css/img_app/vector_like.png"></img>
@@ -230,12 +242,12 @@ export default () => {
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
   const userInfo = post.querySelector('#userInfo');
-   
-  
+
+
 
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
- 
+
   });
   closeModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
@@ -246,7 +258,7 @@ export default () => {
 
 
 
-  
+
 
   return post;
 };
