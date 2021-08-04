@@ -12,6 +12,13 @@ export default () => {
   </nav>
   
   <nav id="navbar-feed-laptop">
+    <div id="logo-nav">
+      <h1 class="logo-laptop"> 
+        <span class="chevron left"></span> 
+          LS
+        <span class="chevron right"></span> 
+      </h1>
+    </div>
     <div id="side-nav">
         <a href="#/profile"  class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
         <a href="#/profile" id="profile-btn-white" class="redirect"> Perfil </img></a>
@@ -169,7 +176,12 @@ export default () => {
       e.preventDefault();
       const text = postForm['text-post'];
       if (!editStatus) {
-        await savePost(text.value , getDate());
+        if(text.value != ''){
+          await savePost(text.value , getDate());
+        } else {
+          alert('Debes escribir algo para postear')
+        }
+        
       } else {
         await UpdatePost(id, {
           text: text.value,
@@ -197,7 +209,9 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-              <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
+              <p id="infoUser"><br> ${
+                firebase.auth().currentUser.displayName
+              } dice: </p>
               </div>
               <p class = "each-text">
                 ${post.text}
@@ -205,10 +219,15 @@ export default () => {
               </p>  
               <div class="interaction-bar">
                 <img class="like-btn" src="../css/img_app/vector_like.png"></img>
-                <img class="btn-edit secondary" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
-                <img class="btn-delete primary" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
+                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${
+                  post.id
+                }"></img>
+                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${
+                  post.id
+                }"></img>
               </div>
-            </div>`;
+            </div>
+            `;
 
         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach((btn) => {
@@ -241,24 +260,23 @@ export default () => {
   const modalContainer = post.querySelector('#modal_container');
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
-  const userInfo = post.querySelector('#userInfo');
-
-
 
   openModal.addEventListener('click', () => {
     modalContainer.classList.add('show');
-
   });
+
   closeModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
+
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
 
-
-
-
+  //  const editOpenModal = document.getElementById('edit-post');
+  // editOpenModal.addEventListener('click', ()=>{
+  //  modalContainer.classList.add('show');
+  // });
 
   return post;
 };
