@@ -1,7 +1,8 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-  let user = firebaseFunctions.userInfo();
+  const user = firebaseFunctions.userInfo(); 
+  
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -143,7 +144,7 @@ export default () => {
   </div>            
             `;
 
-// funcion de fecha 
+// Función de fecha en post 
 
   const getDate = () => {
     const hoy = new Date();
@@ -153,6 +154,7 @@ export default () => {
   
     return fechaYHora;
   }
+ 
 
   const post = document.createElement('section');
   post.id = 'post-section';
@@ -162,8 +164,9 @@ export default () => {
   // Postear con firebase
 
   const db = firebase.firestore();
-  const savePost = (text, date) => db.collection('post').doc().set({ text, date });
-  const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
+  
+  const savePost = (text, date, /* like */) => db.collection('post').doc().set({ text, date, /* like */});
+  const onGetPost = (callback) => db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
   const UpdatePost = (id, UpdatePost) =>
@@ -202,7 +205,8 @@ export default () => {
 
     onGetPost((querySnapshot) => {
       // console.log('HRE', postContainer.innerHTML.length);
-      postContainer.innerHTML = '';
+      /* feedupdate(() => { */
+      postContainer.innerHTML = '';      
       querySnapshot.forEach((doc) => {
         const post = doc.data();
         // console.log(post);
@@ -210,22 +214,17 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-              <p id="infoUser"><br> ${
-                firebase.auth().currentUser.displayName
-              } dice: </p>
+              <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
               </div>
               <p class = "each-text">
                 ${post.text}
                 ${post.date}
               </p>  
               <div class="interaction-bar">
-                <img class="like-btn" src="../css/img_app/vector_like.png"></img>
-                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${
-                  post.id
-                }"></img>
-                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${
-                  post.id
-                }"></img>
+                <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png data-id="${post.id}"></img>
+                
+                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
+                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
               </div>
             </div>
             `;        
@@ -234,7 +233,8 @@ export default () => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
             await deletePost(e.target.dataset.id);
-          });
+          
+        });
         });
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach((btn) => {
@@ -249,22 +249,12 @@ export default () => {
             postForm['btn-post-form'].innerText = 'Update';
           });
         });
-        const likeBtn = document.querySelector('#likeBtn');
-        likeBtn.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-        const getPost = (id) => db.collection('post').doc(id).get();
-        const docPost = await getPost(e.target.dataset.id);
-        const idDocData = (docPost.id);
-        console.log(idDocData);
-        const likesRef = db.collection('post').doc(idDocData);
-        likesRef.update({
-          like: firebase.firestore.FieldValue.increment(1),
+        const likeBtn = document.querySelectorAll('.btn-like');
+        console.log(likeBtn)
       });
     });
-      });
-    });
-  });
-
+  });  
+ 
   //----------------------------------------------------------------
   // modal de la meri
 
@@ -290,5 +280,8 @@ export default () => {
   //  modalContainer.classList.add('show');
   // });
   return post;  
-   }) 
-   }
+       }
+       
+         
+        
+  
