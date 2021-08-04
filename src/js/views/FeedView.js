@@ -216,11 +216,7 @@ export default () => {
                 }"></img>
               </div>
             </div>
-            `;
-
-            
-            
-
+            `;        
         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
@@ -241,6 +237,18 @@ export default () => {
             postForm['btn-post-form'].innerText = 'Update';
           });
         });
+        const likeBtn = document.querySelector('#likeBtn');
+        likeBtn.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+        const getPost = (id) => db.collection('post').doc(id).get();
+        const docPost = await getPost(e.target.dataset.id);
+        const idDocData = (docPost.id);
+        console.log(idDocData);
+        const likesRef = db.collection('post').doc(idDocData);
+        likesRef.update({
+          like: firebase.firestore.FieldValue.increment(1),
+      });
+    });
       });
     });
   });
@@ -269,6 +277,6 @@ export default () => {
   // editOpenModal.addEventListener('click', ()=>{
   //  modalContainer.classList.add('show');
   // });
-
-  return post;
-};
+  return post;  
+   }) 
+   }

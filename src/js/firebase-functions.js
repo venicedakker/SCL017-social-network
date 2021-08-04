@@ -1,5 +1,6 @@
 const auth = firebase.auth();
 
+
 const firebaseFunctions = {
   registerAccount: (email, password, username) => {
     auth
