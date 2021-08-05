@@ -17,7 +17,9 @@ const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
     const userInfo = user;
-    window.location.hash = '#/feed';
+    if (!user.emailVerified){
+      window.location.hash = '#/landing';
+    }
     console.log(user);
   } else {
     window.location.hash = '#/landing';

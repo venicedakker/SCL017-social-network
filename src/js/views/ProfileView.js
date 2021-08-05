@@ -1,7 +1,7 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-const user = firebaseFunctions.userInfo;
+const user = firebaseFunctions.userInfo();
   // let user = obs;
   // if(user){}
 

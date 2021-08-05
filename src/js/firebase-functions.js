@@ -4,25 +4,38 @@ const firebaseFunctions = {
   registerAccount: (email, password, username) => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        const user = auth.currentUser;
+      .then((userCredential) => {
+        const user = userCredential.user;
         user.updateProfile({
           displayName: username,
         });
         user.sendEmailVerification();
+        alert('Check your email to verify the account and go to Login');
       })
-      .catch(() => {
+      .catch((error) => {
         // console.log(error);
-        // alert(error.message);
+        alert(error.message);
       });
   },
   loginAccount: (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {})
-      .catch(() => {
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user.emailVerified) {
+          window.location.assign('#/feed');
+        } else {
+          alert(
+            'You need to verify your account to get in, check out your email to verify'
+          );
+          window.location.assign('#/landing');
+
+          firebase.auth().signOut();
+        }
+      })
+      .catch((error) => {
         // console.log(error);
-        // alert(error.message);
+        console.log(error);
       });
   },
   googleLogin: () => {
@@ -34,8 +47,8 @@ const firebaseFunctions = {
         // console.log(user);
         // console.log(result);
       })
-      .catch(() => {
-        // console.log(error);
+      .catch((error) => {
+        console.log(error);
       });
   },
   logoutAccount: () => {
@@ -56,7 +69,7 @@ const firebaseFunctions = {
     } else {
       return 'no hay usuario';
     }
-  }
+  },
 };
 
 export default firebaseFunctions;
