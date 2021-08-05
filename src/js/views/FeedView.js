@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
@@ -147,12 +148,9 @@ export default () => {
 
   const getDate = () => {
     const hoy = new Date();
-    const fecha =
-      hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
-    const hora =
-      hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
     const fechaYHora = fecha + ' ' + hora;
-
     return fechaYHora;
   };
 
@@ -171,8 +169,7 @@ export default () => {
     db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
-  const UpdatePost = (id, UpdatePost) =>
-    db.collection('post').doc(id).update(UpdatePost);
+  const UpdatePost = (id, UpdatePost) =>  db.collection('post').doc(id).update(UpdatePost);
 
   document.addEventListener('DOMContentLoaded', async (e) => {
     const postForm = post.querySelector('#post-form');
@@ -270,11 +267,11 @@ export default () => {
               .runTransaction((t) => {
                 return t.get(docLike).then((doc) => {
                   // Add one person to the city population
-                  var newLikes = doc.data().likes + 1;
+                  let newLikes = doc.data().likes + 1;
                   t.update(docLike, { likes: newLikes });
                 });
               })
-              .then((result) => {
+              .then(() => {
                 console.log('Transaction success!');
               })
               .catch((err) => {
@@ -305,15 +302,5 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
-  // const editOpenModal = document.querySelectorAll('.btn-edit');
-  // editOpenModal.forEach((btn) => {
-  //   btn.addEventListener('click', (e) => {
-  //        modalContainer.classList.add('show');
-  //   });
-  // });
-
-  // editOpenModal.addEventListener('click', ()=>{
-  //  modalContainer.classList.add('show');
-  // });
   return post;
 };

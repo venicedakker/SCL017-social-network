@@ -13,7 +13,6 @@ function router() {
     '#/register': registerView(),
     '#/feed': feedView(),
     '#/profile': profileView(),
-
   };
 
   const routes = {
@@ -22,15 +21,13 @@ function router() {
     '/register': registerView(),
     '/feed': feedView(),
     '/profile': profileView(),
-
   };
 
   const pathname = window.location.pathname;
   rootContainer.appendChild(routes[pathname]);
 
-
-  // makes the url pretty  
-const changeRouteUrl = (hash) => {
+  // makes the url pretty
+  const changeRouteUrl = (hash) => {
     if (hash === '#/landing') {
       window.history.replaceState({}, 'landing', '/');
     } else if (hash === '#/login') {
@@ -41,9 +38,9 @@ const changeRouteUrl = (hash) => {
       window.history.replaceState({}, 'feed', '/feed');
     } else if (hash === '#/profile') {
       window.history.replaceState({}, 'profile', '/profile');
-    } 
+    }
   };
-  
+
   // Muestra cuando cambia la url muestra el view
   window.addEventListener('hashchange', () => {
     const hashLocation = window.location.hash;
