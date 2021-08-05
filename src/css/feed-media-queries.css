@@ -4,7 +4,7 @@
   }
   .logo-laptop{
     font-size: 2rem;
-    margin: 5%;    ;
+    margin: 5%;
   }
   .chevron::before {
     /* height: 0.4em; */
@@ -170,15 +170,8 @@
     align-items: end;
   }
 
-<<<<<<< HEAD
-.likeBtn{
-  width: 30px;
-  margin-left: 20px;
-}
-=======
   .like-btn {
     width: 30px;
     margin-left: 20px;
   }
->>>>>>> b92c29d279702cc09b82fc09463b9ff14740e9da
 }

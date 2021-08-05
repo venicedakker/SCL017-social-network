@@ -1,9 +1,7 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-const user = firebaseFunctions.userInfo;
-  // let user = obs;
-  // if(user){}
+  const user = firebaseFunctions.userInfo();
 
   const profileView = `
     <div class="profile-post">

@@ -35,8 +35,9 @@ export default () => {
   const googleButton = loginElement.querySelector('#loginGoogle');
   googleButton.addEventListener('click', () => {
     firebaseFunctions.googleLogin();
+    window.location.hash = '#/feed';
   });
-  
+
   // funcionalidad del login sin google
   const loginForm = loginElement.querySelector('#login-form');
   loginForm.addEventListener('submit', (e) => {
@@ -44,6 +45,7 @@ export default () => {
     const email = loginElement.querySelector('#login-email').value;
     const password = loginElement.querySelector('#login-password').value;
     firebaseFunctions.loginAccount(email, password);
+    window.location.hash = '#/feed';
   });
 
   return loginElement;

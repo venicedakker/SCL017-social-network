@@ -35,8 +35,8 @@ export default () => {
         `;
 
   const landingElement = document.createElement('section');
-  landingElement.id = "landing-section";
+  landingElement.id = 'landing-section';
   landingElement.innerHTML = landingView;
-    
-    return landingElement;
+
+  return landingElement;
 };

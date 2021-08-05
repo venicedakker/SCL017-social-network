@@ -1,8 +1,9 @@
+/* eslint-disable */ 
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-  const user = firebaseFunctions.userInfo(); 
-  
+  const user = firebaseFunctions.userInfo();
+
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -22,7 +23,7 @@ export default () => {
     </div>
     <div id="side-nav">
         <a href="#/profile"  class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
-        <a href="#/profile" id="profile-btn-white" class="redirect"> Perfil </img></a>
+        <a href="#/profile" id="profile-btn-white" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
     </div>
   </nav>
   
@@ -120,8 +121,7 @@ export default () => {
           </nav>
           <div id="personalInfo">
             <div id="userInfo">
-              <img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img> 
-              
+              <a><img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img> </a>
               <p>
                ${user.displayName}
               </p>
@@ -144,17 +144,15 @@ export default () => {
   </div>            
             `;
 
-// Función de fecha en post 
+  // Función de fecha en post
 
   const getDate = () => {
     const hoy = new Date();
     const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
     const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
     const fechaYHora = fecha + ' ' + hora;
-  
     return fechaYHora;
-  }
- 
+  };
 
   const post = document.createElement('section');
   post.id = 'post-section';
@@ -164,13 +162,14 @@ export default () => {
   // Postear con firebase
 
   const db = firebase.firestore();
-  
-  const savePost = (text, date, like ) => db.collection('post').doc().set({ text, date,  like });
-  const onGetPost = (callback) => db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
+
+  const savePost = (text, date, likes) =>
+    db.collection('post').doc().set({ text, date, likes });
+  const onGetPost = (callback) =>
+    db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
-  const UpdatePost = (id, UpdatePost) =>
-    db.collection('post').doc(id).update(UpdatePost);
+  const UpdatePost = (id, UpdatePost) =>  db.collection('post').doc(id).update(UpdatePost);
 
   document.addEventListener('DOMContentLoaded', async (e) => {
     const postForm = post.querySelector('#post-form');
@@ -179,16 +178,13 @@ export default () => {
       e.preventDefault();
       const text = postForm['text-post'];
       if (!editStatus) {
-        if(text.value != ''){
-          await savePost(text.value , getDate(), like[0]);
+        if (text.value != '') {
+          await savePost(text.value, getDate(), 0);
         } else {
-          alert('Debes escribir algo para postear')
+          alert('Debes escribir algo para postear');
         }
-        
       } else {
-        await UpdatePost(id, {
-          text: text.value,
-        });
+        await UpdatePost(id, { text: text.value });
         editStatus = false;
         id = '';
         /* postForm['btn-post-form'].innerText = 'PUBLICAR'; */
@@ -201,12 +197,11 @@ export default () => {
     const postContainer = post.querySelector('#post-container');
     let editStatus = false;
     let id = '';
-    
 
     onGetPost((querySnapshot) => {
       // console.log('HRE', postContainer.innerHTML.length);
       /* feedupdate(() => { */
-      postContainer.innerHTML = '';      
+      postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
         // console.log(post);
@@ -214,31 +209,40 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-              <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
+
+              <p id="infoUser"><br> ${user.displayName} dice: </p>
+
               </div>
+              <p class = "each-date">
+                ${post.date}
+              </p>
               <p class = "each-text">
                 ${post.text}
-                ${post.date}
               </p>  
               <div class="interaction-bar">
-                <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png"></img>
-                
-                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
-                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
+                <div>
+                  <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png" data-id="${post.id}"></img>
+                  <p class="number-likes" id="counter-likes"> ${post.likes}</p>
+                </div>
+                <a><img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img></a>
+                <a><img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img></a>
               </div>
             </div>
-            `;        
+            `;
         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
             await deletePost(e.target.dataset.id);
-          
+          });
         });
-        });
+
+        const modalContainer = document.querySelector('#modal_container');
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
+            modalContainer.classList.add('show');
+
             e.preventDefault();
             const doc = await getPost(e.target.dataset.id);
             // console.log(doc.data());
@@ -249,23 +253,36 @@ export default () => {
             postForm['btn-post-form'].innerText = 'Update';
           });
         });
+
         const likeBtn = document.querySelectorAll('.btn-like');
-        console.log(likeBtn)
-         /*likeBtn.forEach((btn) => {
-         btn.addEventListener('click', async (e) => {
-           e.preventDefault();
-        const getPost = (id) => db.collection('post').doc(id).get();
-        const doc = await getPost(e.target.dataset.id);
-        const id = (doc.id);
-        const likesRef = db.collection('post').doc(id);
-        likesRef.update({
-          like: firebase.firestore.FieldValue.increment(1), 
-      });
-    }); */
+
+        likeBtn.forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const doc = await getPost(e.target.dataset.id);
+            id = doc.id;
+            const docLike = db.collection('post').doc(id);
+            // likes = await UpdatePost(doc.data().id , {likes: doc.data().likes + 1})
+            let transaction = db
+              .runTransaction((t) => {
+                return t.get(docLike).then((doc) => {
+                  // Add one person to the city population
+                  let newLikes = doc.data().likes + 1;
+                  t.update(docLike, { likes: newLikes });
+                });
+              })
+              .then(() => {
+                console.log('Transaction success!');
+              })
+              .catch((err) => {
+                console.log('Transaction failure:', err);
+              });
+          });
+        });
       });
     });
-  });  
- 
+  });
+
   //----------------------------------------------------------------
   // modal de la meri
 
@@ -285,14 +302,5 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
-
-  //  const editOpenModal = document.getElementById('edit-post');
-  // editOpenModal.addEventListener('click', ()=>{
-  //  modalContainer.classList.add('show');
-  // });
-  return post;  
-       }
-       
-         
-        
-  
+  return post;
+};
