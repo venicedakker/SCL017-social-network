@@ -170,8 +170,15 @@
     align-items: end;
   }
 
+<<<<<<< HEAD
+.likeBtn{
+  width: 30px;
+  margin-left: 20px;
+}
+=======
   .like-btn {
     width: 30px;
     margin-left: 20px;
   }
+>>>>>>> b92c29d279702cc09b82fc09463b9ff14740e9da
 }

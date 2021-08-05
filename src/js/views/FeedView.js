@@ -1,7 +1,9 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
+
   const user = firebaseFunctions.userInfo();
+
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -143,6 +145,18 @@ export default () => {
   </div>            
             `;
 
+// Función de fecha en post 
+
+  const getDate = () => {
+    const hoy = new Date();
+    const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    const fechaYHora = fecha + ' ' + hora;
+  
+    return fechaYHora;
+  }
+ 
+
   const post = document.createElement('section');
   post.id = 'post-section';
   post.innerHTML = feedView;
@@ -151,8 +165,9 @@ export default () => {
   // Postear con firebase
 
   const db = firebase.firestore();
-  const savePost = (text) => db.collection('post').doc().set({ text });
-  const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
+  
+  const savePost = (text, date, /* like */) => db.collection('post').doc().set({ text, date, /* like */});
+  const onGetPost = (callback) => db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
   const UpdatePost = (id, UpdatePost) =>
@@ -166,7 +181,7 @@ export default () => {
       const text = postForm['text-post'];
       if (!editStatus) {
         if(text.value != ''){
-          await savePost(text.value);
+          await savePost(text.value , getDate());
         } else {
           alert('Debes escribir algo para postear')
         }
@@ -177,20 +192,22 @@ export default () => {
         });
         editStatus = false;
         id = '';
-        postForm['btn-post-form'].innerText = 'PUBLICAR';
+        /* postForm['btn-post-form'].innerText = 'PUBLICAR'; */
       }
       postForm.reset();
-      text.focus();
+      /* text.focus(); */
       // console.log(text);
     });
 
     const postContainer = post.querySelector('#post-container');
     let editStatus = false;
     let id = '';
+    
 
     onGetPost((querySnapshot) => {
       // console.log('HRE', postContainer.innerHTML.length);
-      postContainer.innerHTML = '';
+      /* feedupdate(() => { */
+      postContainer.innerHTML = '';      
       querySnapshot.forEach((doc) => {
         const post = doc.data();
         // console.log(post);
@@ -198,32 +215,29 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-                <p id="infoUser"><br> 
-                  ${user.displayName} 
-                  dice: 
-                </p>
+
+              <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
+
               </div>
               <p class = "each-text">
                 ${post.text}
+                ${post.date}
               </p>  
               <div class="interaction-bar">
-                <img class="like-btn" src="../css/img_app/vector_like.png"></img>
-                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${
-                  post.id
-                }"></img>
-                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${
-                  post.id
-                }"></img>
+                <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png data-id="${post.id}"></img>
+                
+                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
+                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
               </div>
             </div>
-            `;
-
+            `;        
         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
             await deletePost(e.target.dataset.id);
-          });
+          
+        });
         });
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach((btn) => {
@@ -238,10 +252,12 @@ export default () => {
             postForm['btn-post-form'].innerText = 'Update';
           });
         });
+        const likeBtn = document.querySelectorAll('.btn-like');
+        console.log(likeBtn)
       });
     });
-  });
-
+  });  
+ 
   //----------------------------------------------------------------
   // modal de la meri
 
@@ -266,6 +282,9 @@ export default () => {
   // editOpenModal.addEventListener('click', ()=>{
   //  modalContainer.classList.add('show');
   // });
-
-  return post;
-};
+  return post;  
+       }
+       
+         
+        
+  
