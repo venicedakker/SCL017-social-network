@@ -1,8 +1,9 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-  const user = firebaseFunctions.userInfo(); 
-  
+
+  const user = firebaseFunctions.userInfo();
+
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -22,7 +23,7 @@ export default () => {
     </div>
     <div id="side-nav">
         <a href="#/profile"  class="editBtn"><img class="vector" src = "../css/img_app/vector_edit_pink.png"></img></a>
-        <a href="#/profile" id="profile-btn-white" class="redirect"> Perfil </img></a>
+        <a href="#/profile" id="profile-btn-white" class="redirect"> <img class="vector" src = "../css/img_app/vector_profile.png"></a>
     </div>
   </nav>
   
@@ -214,7 +215,9 @@ export default () => {
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
+
               <p id="infoUser"><br> ${firebase.auth().currentUser.displayName} dice: </p>
+
               </div>
               <p class = "each-text">
                 ${post.text}
