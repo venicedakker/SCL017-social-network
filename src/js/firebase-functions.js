@@ -64,7 +64,7 @@ const firebaseFunctions = {
     window.location.hash = '';
   },
   userInfo: () => {
-    const user = auth.currentUser;
+    const user = firebase.auth().currentUser;
     if (user != null) {
       return user;
     } else {

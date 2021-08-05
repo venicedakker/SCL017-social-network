@@ -1,5 +1,6 @@
-/* eslint-disable */ 
-import firebaseFunctions from '../firebase-functions.js';
+/* eslint-disable */
+import firebaseFunctions from "../firebase-functions.js";
+
 
 export default () => {
   const user = firebaseFunctions.userInfo();
@@ -120,10 +121,10 @@ export default () => {
             <button  id="btn-post-form">Post</button>
           </nav>
           <div id="personalInfo">
-            <div id="userInfo">
-              <a><img id="profilePic" class="profilePic" src="../css/img_app/perfil.jpeg"></img> </a>
+            <div id="userInfo"></div>
+              <a><img id="profilePic" class="profilePic"></img> </a>
               <p>
-               ${user.displayName}
+               ${user}
               </p>
                            
             </div>
@@ -144,18 +145,19 @@ export default () => {
   </div>            
             `;
 
-  // Función de fecha en post
-
+  //Función de fecha en post
   const getDate = () => {
     const hoy = new Date();
-    const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
-    const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
-    const fechaYHora = fecha + ' ' + hora;
+    const fecha =
+      hoy.getDate() + "-" + (hoy.getMonth() + 1) + "-" + hoy.getFullYear();
+    const hora =
+      hoy.getHours() + ":" + hoy.getMinutes() + ":" + hoy.getSeconds();
+    const fechaYHora = fecha + " " + hora;
     return fechaYHora;
   };
 
-  const post = document.createElement('section');
-  post.id = 'post-section';
+  const post = document.createElement("section");
+  post.id = "post-section";
   post.innerHTML = feedView;
 
   //-----------------------------------------------------------------
@@ -163,167 +165,157 @@ export default () => {
 
   const db = firebase.firestore();
 
-  const savePost = (text, date, likes) =>
-    db.collection('post').doc().set({ text, date, likes });
+  const savePost = (text, date, like, user) =>
+    db.collection("post").doc().set({ text, date, like, user });
   const onGetPost = (callback) =>
-    db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
-  const getPost = (id) => db.collection('post').doc(id).get();
-  const deletePost = (id) => db.collection('post').doc(id).delete();
-  const UpdatePost = (id, UpdatePost) =>  db.collection('post').doc(id).update(UpdatePost);
+    db.collection("post").orderBy("date", "desc").onSnapshot(callback);
+  const getPost = (id) => db.collection("post").doc(id).get();
+  const deletePost = (id) => db.collection("post").doc(id).delete();
+  const UpdatePost = (id, UpdatePost) =>
+    db.collection("post").doc(id).update(UpdatePost);
 
-  document.addEventListener('DOMContentLoaded', async (e) => {
-    const postForm = post.querySelector('#post-form');
+  document.addEventListener("DOMContentLoaded", async (e) => {
+    const postForm = post.querySelector("#post-form");
 
-    postForm.addEventListener('submit', async (e) => {
+    postForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const text = postForm['text-post'];
+      const text = postForm["text-post"];
       if (!editStatus) {
-        if (text.value != '') {
-          await savePost(text.value, getDate(), 0);
+        if (text.value != "") {
+          await savePost(text.value, getDate(), []);
         } else {
-          alert('Debes escribir algo para postear');
+          alert("Debes escribir algo para postear");
         }
       } else {
         await UpdatePost(id, { text: text.value });
         editStatus = false;
-        id = '';
-        /* postForm['btn-post-form'].innerText = 'PUBLICAR'; */
+        id = "";
       }
       postForm.reset();
-      /* text.focus(); */
-      // console.log(text);
+      
     });
 
-    const postContainer = post.querySelector('#post-container');
+    const postContainer = post.querySelector("#post-container");
     let editStatus = false;
-    let id = '';
+    let id = "";
 
     onGetPost((querySnapshot) => {
-      postContainer.innerHTML = '';
+      postContainer.innerHTML = "";
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        // console.log(post);
+        
         post.id = doc.id;
-        const getArrayLikes = post.like;
-        const NumberLikes = getArrayLikes.length;
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
-
-              <p id="infoUser"><br> ${post.user} dice: </p>
-
-              </div>
-              <p class = "each-date">
-                ${post.date}
+              <img id="profilePic">
+              </img>
+              <p id="infoUser">${user} dice: 
+              
               </p>
+              <p class = "each-date">
+                  ${post.date}
+              </p>
+              </div>
+              
               <p class = "each-text">
                 ${post.text}
               </p>  
               <div class="interaction-bar">
                 <div>
                   <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png" data-id="${post.id}"></img>
-                  <p class="number-likes" id="counter-likes"> ${post.likes} ${NumberLikes}</p>
+                  <p class="number-likes" id="counter-likes" data-id="${post.id}">${post.like.length} </p>
                 </div>
                 <a><img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img></a>
                 <a><img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img></a>
               </div>
             </div>
             `;
-        const btnsDelete = document.querySelectorAll('.btn-delete');
+        const btnsDelete = document.querySelectorAll(".btn-delete");
         btnsDelete.forEach((btn) => {
-          btn.addEventListener('click', async (e) => {
+          btn.addEventListener("click", async (e) => {
             e.preventDefault();
+            alert ('¿Estás segura que quieres borrar tu comentario?');
             await deletePost(e.target.dataset.id);
           });
         });
 
-        const modalContainer = document.querySelector('#modal_container');
-        const btnsEdit = document.querySelectorAll('.btn-edit');
+        const modalContainer = document.querySelector("#modal_container");
+        const btnsEdit = document.querySelectorAll(".btn-edit");
         btnsEdit.forEach((btn) => {
-          btn.addEventListener('click', async (e) => {
-            modalContainer.classList.add('show');
+          btn.addEventListener("click", async (e) => {
+            modalContainer.classList.add("show");
 
             e.preventDefault();
             const doc = await getPost(e.target.dataset.id);
-            // console.log(doc.data());
+
             const post = doc.data();
             editStatus = true;
             id = doc.id;
-            postForm['text-post'].value = post.text;
-            postForm['btn-post-form'].innerText = 'Update';
+            postForm["text-post"].value = post.text;
+            postForm["btn-post-form"].innerText = "Update";
           });
         });
 
-        const likeBtn = document.querySelectorAll('.btn-like');
+        const likeBtn = document.querySelectorAll(".btn-like");
         likeBtn.forEach((btn) => {
-          btn.addEventListener('click', async (e) => {
+          btn.addEventListener("click", async (e) => {
             e.preventDefault();
+            const getPost = (id) => db.collection("post").doc(id).get();
             const doc = await getPost(e.target.dataset.id);
-            id = doc.id;
-            const getDoc = doc.doc();
-            const getArrayLike = getDoc.likes;
-            
-            firebase.auth().onAuthStateChanged((user)=>{ 
-            const userName = user.displayName;
-            const docLike = db.collection('post').doc(id);
-            const findLike = getArrayLike.includes(userName);
-            /* const btnLikes = document.getElementById ('.btn-likePost'); */
-            if(findLike==true){
-              console.log('dislike');
-              docLike.update({
-                likes: firebased.firestore.FieldValue.arrayRemove(userName),             
-            });
-            document.getElementById('btnLike').className = 'btnLike';
-            } else {
-              docLike.update({
-                likes: firebase.firestore.FieldValue.arrayUnion(userName),
+            const id = doc.id;
+            const docLike = db.collection("post").doc(id);
+            /*  console.log(docLike) */
+            const user = firebase.auth().currentUser;
+            console.log(user.uid);
+            console.log(user.displayName);
 
-              });
-            }           
-            
-            
-            /* let transaction = db
-              .runTransaction((t) => {
-                return t.get(docLike).then((doc) => {
-                  
-                  let newLikes = doc.data().likes + 1;
-                  t.update(docLike, { likes: newLikes });
+            docLike.get("like").then((postData) => {
+              console.log(postData);
+              const likesArray = postData.data().like;
+              console.log(likesArray);
+
+              if (likesArray.includes(user.displayName)) {
+                docLike.update({
+                  like: firebase.firestore.FieldValue.arrayRemove(
+                    user.displayName
+                  ),
                 });
-              })
-              .then(() => {
-                console.log('Transaction success!');
-              })
-              .catch((err) => {
-                console.log('Transaction failure:', err);
-              }); 
+              } else {
+                docLike.update({
+                  like: firebase.firestore.FieldValue.arrayUnion(
+                    user.displayName
+                  ),
+                });
+              }
+            });
           });
-       /* });*/
-       });
+        });
+        
+        });
+      });
     });
-  }); 
+  
 
   //----------------------------------------------------------------
   // modal de la meri
 
-  const closeModal = post.querySelector('#close');
-  const modalContainer2 = post.querySelector('#modal_container');
-  const openModal = post.querySelector('#text-area-post1');
-  const postModal = post.querySelector('#btn-post-form');
+  const closeModal = post.querySelector("#close");
+  const modalContainer2 = post.querySelector("#modal_container");
+  const openModal = post.querySelector("#text-area-post1");
+  const postModal = post.querySelector("#btn-post-form");
 
-  openModal.addEventListener('click', () => {
-    modalContainer2.classList.add('show');
+  openModal.addEventListener("click", () => {
+    modalContainer2.classList.add("show");
   });
 
-  closeModal.addEventListener('click', () => {
-    modalContainer2.classList.remove('show');
+  closeModal.addEventListener("click", () => {
+    modalContainer2.classList.remove("show");
   });
 
-  postModal.addEventListener('click', () => {
-    modalContainer2.classList.remove('show');
+  postModal.addEventListener("click", () => {
+    modalContainer2.classList.remove("show");
   });
   return post;
-});
- })
-  })
-   }
+};
 
