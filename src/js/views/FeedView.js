@@ -165,7 +165,7 @@ export default () => {
 
   const db = firebase.firestore();
   
-  const savePost = (text, date, /* like */) => db.collection('post').doc().set({ text, date, /* like */});
+  const savePost = (text, date, like ) => db.collection('post').doc().set({ text, date,  like });
   const onGetPost = (callback) => db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
@@ -180,7 +180,7 @@ export default () => {
       const text = postForm['text-post'];
       if (!editStatus) {
         if(text.value != ''){
-          await savePost(text.value , getDate());
+          await savePost(text.value , getDate(), like[0]);
         } else {
           alert('Debes escribir algo para postear')
         }
@@ -221,7 +221,7 @@ export default () => {
                 ${post.date}
               </p>  
               <div class="interaction-bar">
-                <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png data-id="${post.id}"></img>
+                <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png"></img>
                 
                 <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
                 <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
@@ -251,6 +251,17 @@ export default () => {
         });
         const likeBtn = document.querySelectorAll('.btn-like');
         console.log(likeBtn)
+         /*likeBtn.forEach((btn) => {
+         btn.addEventListener('click', async (e) => {
+           e.preventDefault();
+        const getPost = (id) => db.collection('post').doc(id).get();
+        const doc = await getPost(e.target.dataset.id);
+        const id = (doc.id);
+        const likesRef = db.collection('post').doc(id);
+        likesRef.update({
+          like: firebase.firestore.FieldValue.increment(1), 
+      });
+    }); */
       });
     });
   });  

@@ -122,8 +122,8 @@
   background-color: var(--white);
 }
 
-.likeBtn{
-  width: 40px;
+.btn-like{
+  width: 30px;
 }
 
 /* Seccion de los filtros */
