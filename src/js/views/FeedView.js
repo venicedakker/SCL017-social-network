@@ -199,18 +199,18 @@ export default () => {
     let id = '';
 
     onGetPost((querySnapshot) => {
-      // console.log('HRE', postContainer.innerHTML.length);
-      /* feedupdate(() => { */
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
         // console.log(post);
         post.id = doc.id;
+        const getArrayLikes = post.like;
+        const NumberLikes = getArrayLikes.length;
         postContainer.innerHTML += `
             <div class="each-post">
               <div clas="each-infoUser">
 
-              <p id="infoUser"><br> ${user.displayName} dice: </p>
+              <p id="infoUser"><br> ${post.user} dice: </p>
 
               </div>
               <p class = "each-date">
@@ -222,7 +222,7 @@ export default () => {
               <div class="interaction-bar">
                 <div>
                   <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png" data-id="${post.id}"></img>
-                  <p class="number-likes" id="counter-likes"> ${post.likes}</p>
+                  <p class="number-likes" id="counter-likes"> ${post.likes} ${NumberLikes}</p>
                 </div>
                 <a><img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img></a>
                 <a><img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img></a>
@@ -255,18 +255,37 @@ export default () => {
         });
 
         const likeBtn = document.querySelectorAll('.btn-like');
-
         likeBtn.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
             const doc = await getPost(e.target.dataset.id);
             id = doc.id;
+            const getDoc = doc.doc();
+            const getArrayLike = getDoc.likes;
+            
+            firebase.auth().onAuthStateChanged((user)=>{ 
+            const userName = user.displayName;
             const docLike = db.collection('post').doc(id);
-            // likes = await UpdatePost(doc.data().id , {likes: doc.data().likes + 1})
-            let transaction = db
+            const findLike = getArrayLike.includes(userName);
+            /* const btnLikes = document.getElementById ('.btn-likePost'); */
+            if(findLike==true){
+              console.log('dislike');
+              docLike.update({
+                likes: firebased.firestore.FieldValue.arrayRemove(userName),             
+            });
+            document.getElementById('btnLike').className = 'btnLike';
+            } else {
+              docLike.update({
+                likes: firebase.firestore.FieldValue.arrayUnion(userName),
+
+              });
+            }           
+            
+            
+            /* let transaction = db
               .runTransaction((t) => {
                 return t.get(docLike).then((doc) => {
-                  // Add one person to the city population
+                  
                   let newLikes = doc.data().likes + 1;
                   t.update(docLike, { likes: newLikes });
                 });
@@ -276,31 +295,35 @@ export default () => {
               })
               .catch((err) => {
                 console.log('Transaction failure:', err);
-              });
+              }); 
           });
-        });
-      });
+       /* });*/
+       });
     });
-  });
+  }); 
 
   //----------------------------------------------------------------
   // modal de la meri
 
   const closeModal = post.querySelector('#close');
-  const modalContainer = post.querySelector('#modal_container');
+  const modalContainer2 = post.querySelector('#modal_container');
   const openModal = post.querySelector('#text-area-post1');
   const postModal = post.querySelector('#btn-post-form');
 
   openModal.addEventListener('click', () => {
-    modalContainer.classList.add('show');
+    modalContainer2.classList.add('show');
   });
 
   closeModal.addEventListener('click', () => {
-    modalContainer.classList.remove('show');
+    modalContainer2.classList.remove('show');
   });
 
   postModal.addEventListener('click', () => {
-    modalContainer.classList.remove('show');
+    modalContainer2.classList.remove('show');
   });
   return post;
-};
+});
+ })
+  })
+   }
+
