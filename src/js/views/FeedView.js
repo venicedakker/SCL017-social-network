@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
@@ -147,12 +148,9 @@ export default () => {
 
   const getDate = () => {
     const hoy = new Date();
-    const fecha =
-      hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
-    const hora =
-      hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    const hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
     const fechaYHora = fecha + ' ' + hora;
-
     return fechaYHora;
   };
 
@@ -171,9 +169,8 @@ export default () => {
     db.collection('post').orderBy('date', 'desc').onSnapshot(callback);
   const getPost = (id) => db.collection('post').doc(id).get();
   const deletePost = (id) => db.collection('post').doc(id).delete();
-  const UpdatePost = (id, UpdatePost) =>
-    db.collection('post').doc(id).update(UpdatePost);
-  
+  const UpdatePost = (id, UpdatePost) =>  db.collection('post').doc(id).update(UpdatePost);
+
   document.addEventListener('DOMContentLoaded', async (e) => {
     const postForm = post.querySelector('#post-form');
 
@@ -227,8 +224,8 @@ export default () => {
                   <img class="btn-like" id="btn-like" src="../css/img_app/vector_like.png" data-id="${post.id}"></img>
                   <p class="number-likes" id="counter-likes"> ${post.likes}</p>
                 </div>
-                <img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img>
-                <img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img>
+                <a><img class="btn-edit" id="edit-post" src= "../css/img_app/edit.png" data-id="${post.id}"></img></a>
+                <a><img class="btn-delete" src= "../css/img_app/trash.png"data-id="${post.id}"></img></a>
               </div>
             </div>
             `;
@@ -239,9 +236,13 @@ export default () => {
             await deletePost(e.target.dataset.id);
           });
         });
+
+        const modalContainer = document.querySelector('#modal_container');
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
+            modalContainer.classList.add('show');
+
             e.preventDefault();
             const doc = await getPost(e.target.dataset.id);
             // console.log(doc.data());
@@ -254,8 +255,7 @@ export default () => {
         });
 
         const likeBtn = document.querySelectorAll('.btn-like');
-        
-      
+
         likeBtn.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -267,20 +267,18 @@ export default () => {
               .runTransaction((t) => {
                 return t.get(docLike).then((doc) => {
                   // Add one person to the city population
-                  var newLikes = doc.data().likes + 1;
+                  let newLikes = doc.data().likes + 1;
                   t.update(docLike, { likes: newLikes });
                 });
               })
-              .then((result) => {
+              .then(() => {
                 console.log('Transaction success!');
               })
               .catch((err) => {
                 console.log('Transaction failure:', err);
               });
-   
           });
         });
-
       });
     });
   });
@@ -304,10 +302,5 @@ export default () => {
   postModal.addEventListener('click', () => {
     modalContainer.classList.remove('show');
   });
-
-  //  const editOpenModal = document.getElementById('edit-post');
-  // editOpenModal.addEventListener('click', ()=>{
-  //  modalContainer.classList.add('show');
-  // });
   return post;
 };

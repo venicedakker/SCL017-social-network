@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import { someStyling } from './style-manager.js';
 import { router } from './router.js';
 import firebaseFunctions from './firebase-functions.js';
@@ -16,8 +17,8 @@ window.addEventListener('hashchange', () => {
 const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
   if (user) {
-    const userInfo = user;
-    if (!user.emailVerified){
+    // const userInfo = user;
+    if (!user.emailVerified) {
       window.location.hash = '#/landing';
     }
     console.log(user);
