@@ -21,11 +21,11 @@ body {
 #navbar {
   position: absolute;
   /* top: 73%; */
-  left: 5%;
+  left: 10%;
   display: grid;
   row-gap: 1rem;
-  width: 90%;
-  top: 500px;
+  width: 80%;
+  top: 650px;
 }
 
 .main-content {
@@ -35,10 +35,11 @@ body {
 .title-students {
   background-color: var(--yellow);
   padding-bottom: 10%;
+  width: 480px;
 }
 
 .logo {
-  width: 50%;
+  width: 30%;
 }
 
 .students {
@@ -49,6 +50,8 @@ body {
 
 .title-two {
   text-align: center;
+  font-family: 'open sans';
+  font-size: 20px;
 }
 
 #img-background {
@@ -56,7 +59,7 @@ body {
   background-size: cover;
   width: 175px;
   height: auto;
-  padding: 30%;
+  padding: 40%;
   top: 34%;
 }
 
@@ -83,13 +86,14 @@ body {
 }
 
 footer {
-  background-color: var(--yellow);
+  background-color: var(--white);
   padding-top: 5px;
-  width: 100%;
+  width: 110%;
   height: 25px;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   text-align: center;
+  font-size: 10px;
 }
 
 footer.scrolling {

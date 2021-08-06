@@ -4,8 +4,8 @@ export default () => {
         <main class="main-content"> 
             
               <nav id="navbar">
-                <a href="#/login" id="login" class="button" >LOGIN</a>
-                <a href="#/register" id="register" class="button" >REGISTER</a>
+                <a href="#/login" id="login" class="button" >Ingresar</a>
+                <a href="#/register" id="register" class="button" >Registrarse</a>
                 <!-- <a href="#/post" id="post" class="button" >POST</a> -->
               </nav>
 
