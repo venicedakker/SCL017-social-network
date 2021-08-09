@@ -288,6 +288,7 @@ export default () => {
   const deletePost = (id) => db.collection('post').doc(id).delete();
   const UpdatePost = (id, UpdatePost) => db.collection('post').doc(id).update(UpdatePost);
 
+
   document.addEventListener('DOMContentLoaded', async (e) => {
     const postForm = post.querySelector('#post-form');
 
@@ -348,7 +349,9 @@ export default () => {
         btnsDelete.forEach((btn) => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
-            alert('¿Estás segura que quieres borrar tu comentario?');
+
+            confirm('¿Estás segura que quieres borrar tu comentario?');
+
             await deletePost(e.target.dataset.id);
           });
         });
