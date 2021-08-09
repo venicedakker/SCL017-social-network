@@ -7,14 +7,6 @@ import profileView from './views/ProfileView.js';
 function router() {
   const rootContainer = document.getElementById('root');
 
-  const content = {
-    '#/landing': landingPage(),
-    '#/login': loginView(),
-    '#/register': registerView(),
-    '#/feed': feedView(),
-    '#/profile': profileView(),
-  };
-
   const routes = {
     '/': landingPage(),
     '/login': loginView(),
@@ -24,7 +16,17 @@ function router() {
   };
 
   const pathname = window.location.pathname;
-  rootContainer.appendChild(routes[pathname]);
+  if (pathname === '/') {
+    rootContainer.appendChild(routes['/']);
+  } else if (pathname === '/login') {
+    rootContainer.appendChild(routes['/login']);
+  } else if (pathname === '/register') {
+    rootContainer.appendChild(routes['/register']);
+  } else if (pathname === '/feed') {
+    rootContainer.appendChild(routes['/feed']);
+  } else if (pathname === '/profile') {
+    rootContainer.appendChild(routes['/profile']);
+  }
 
   // makes the url pretty
   const changeRouteUrl = (hash) => {
@@ -40,20 +42,50 @@ function router() {
       window.history.replaceState({}, 'profile', '/profile');
     }
   };
-
+  const content = {
+    '#/landing': landingPage(),
+    '#/login': loginView(),
+    '#/register': registerView(),
+    '#/feed': feedView(),
+    '#/profile': profileView(),
+  };
   // Muestra cuando cambia la url muestra el view
   window.addEventListener('hashchange', () => {
     const hashLocation = window.location.hash;
     rootContainer.innerHTML = '';
-    rootContainer.appendChild(content[hashLocation]);
-    changeRouteUrl(hashLocation);
+    if (hashLocation === '#/landing') {
+      rootContainer.appendChild(content['#/landing']);
+      changeRouteUrl('#/landing');
+    } else if (hashLocation === '#/login') {
+      rootContainer.appendChild(content['#/login']);
+      changeRouteUrl('#/login');
+    } else if (hashLocation === '#/register') {
+      rootContainer.appendChild(content['#/register']);
+      changeRouteUrl('#/register');
+    } else if (hashLocation === '#/feed') {
+      rootContainer.appendChild(content['#/feed']);
+      changeRouteUrl('#/feed');
+    } else if (hashLocation === '#/profile') {
+      rootContainer.appendChild(content['#/profile']);
+      changeRouteUrl('#/profile');
+    }
   });
 
   // guarda en el historial
   window.onpopstate = () => {
     const newPath = window.location.pathname;
     rootContainer.innerHTML = '';
-    rootContainer.appendChild(routes[newPath]);
+    if (newPath === '/') {
+      rootContainer.appendChild(routes['/']);
+    } else if (newPath === '/login') {
+      rootContainer.appendChild(routes['/login']);
+    } else if (newPath === '/register') {
+      rootContainer.appendChild(routes['/register']);
+    } else if (newPath === '/feed') {
+      rootContainer.appendChild(routes['/feed']);
+    } else if (newPath === '/profile') {
+      rootContainer.appendChild(routes['/profile']);
+    }
   };
 }
 export { router };

@@ -6,20 +6,20 @@ export default () => {
         <div class="container">
                 <form id="register-form">
                     <h1 class="title-form">Register</h1>
-                    <input class="input-data" type="text" id="username" placeholder="Username" required>
-                    <input class="input-data" type="email" id="register-email" placeholder="Email address" required>
-                    <input class="input-data" type="password" id="register-password" placeholder="Create Password" required>
-                    <input class="input-data" type="password" id="register-password-confirmed" placeholder="Confirmed Password" required>
-                    <button class="action-btn" type="submit" id="register-btn"> REGISTER </button>
+                    <input class="input-data" type="text" id="username" placeholder="Nombre de usuario" required>
+                    <input class="input-data" type="email" id="register-email" placeholder="Email" required>
+                    <input class="input-data" type="password" id="register-password" placeholder="Contraseña" required>
+                    <input class="input-data" type="password" id="register-password-confirmed" placeholder="Confirma tu contraseña" required>
+                    <button class="action-btn" type="submit" id="register-btn"> Registrate </button>
                 </form>
            
                 <div id="break-section">
                     <div class="line">&nbsp;</div>
-                    <div class="or">Or</div>
+                    <div class="or">O</div>
                     <div class="line">&nbsp;</div>
                 </div>
                 
-                <button class="action-google" type="button" id="loginGoogle"> <span>LOGIN WITH </span> <img class="img-google" src="./css/img_app/google.png" alt="google"><span> OOGLE </span></button>
+                <button class="action-google" type="button" id="loginGoogle"> <span>Ingresa con </span> <img class="img-google" src="./css/img_app/google.png" alt="google"><span> OOGLE </span></button>
            
                 <h3 class="enter"> ¿Ya tienes cuenta? 
                 <a href="#/login" id="link-redirect"> Ingresa aquí </a>
