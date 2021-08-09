@@ -165,8 +165,8 @@ export default () => {
 
   const db = firebase.firestore();
 
-  const savePost = (text, date, like, user) =>
-    db.collection("post").doc().set({ text, date, like, user });
+  const savePost = (text, date, like,) =>
+    db.collection("post").doc().set({ text, date, like,});
   const onGetPost = (callback) =>
     db.collection("post").orderBy("date", "desc").onSnapshot(callback);
   const getPost = (id) => db.collection("post").doc(id).get();
@@ -235,7 +235,7 @@ export default () => {
         btnsDelete.forEach((btn) => {
           btn.addEventListener("click", async (e) => {
             e.preventDefault();
-            alert ('¿Estás segura que quieres borrar tu comentario?');
+            confirm('¿Estás segura que quieres borrar tu comentario?');
             await deletePost(e.target.dataset.id);
           });
         });
