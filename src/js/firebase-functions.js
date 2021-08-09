@@ -5,8 +5,8 @@ const firebaseFunctions = {
   registerAccount: (email, password, username) => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
+      .then(() => {
+        const user = firebase.auth().currentUser;
         user.updateProfile({
           displayName: username,
         });
@@ -44,11 +44,13 @@ const firebaseFunctions = {
     auth
       .signInWithPopup(provider)
       .then(() => {
-        // const user = auth.currentUser;
-        // console.log(user);
-        // console.log(result);
+        const user = auth.currentUser;
+        console.log(user);
+        window.location.hash = '#/feed';
+
       })
       .catch((error) => {
+        window.location.hash = '#/landing'
         console.log(error);
       });
   },
@@ -63,14 +65,15 @@ const firebaseFunctions = {
       });
     window.location.hash = '';
   },
-  userInfo: () => {
+   userInfo: () => {
     const user = firebase.auth().currentUser;
+    console.log(user);
     if (user != null) {
-      return user;
+      return user1;
     } else {
       return 'no hay usuario';
     }
-  },
+  }, 
 };
 
 export default firebaseFunctions;

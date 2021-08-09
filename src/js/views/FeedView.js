@@ -124,7 +124,7 @@ export default () => {
             <div id="userInfo"></div>
               <a><img id="profilePic" class="profilePic"></img> </a>
               <p>
-               ${user}
+               ${user.displayName}
               </p>
                            
             </div>
@@ -156,7 +156,7 @@ export default () => {
     return fechaYHora;
   };
 
-  const post = document.createElement("section");
+  const post = document.createElement('section');
   post.id = "post-section";
   post.innerHTML = feedView;
 
@@ -165,8 +165,8 @@ export default () => {
 
   const db = firebase.firestore();
 
-  const savePost = (text, date, like, user) =>
-    db.collection("post").doc().set({ text, date, like, user });
+  const savePost = (text, date, like) =>
+    db.collection("post").doc().set({ text, date, like});
   const onGetPost = (callback) =>
     db.collection("post").orderBy("date", "desc").onSnapshot(callback);
   const getPost = (id) => db.collection("post").doc(id).get();
@@ -210,7 +210,7 @@ export default () => {
               <div clas="each-infoUser">
               <img id="profilePic">
               </img>
-              <p id="infoUser">${user} dice: 
+              <p id="infoUser">${post.uid} dice: 
               
               </p>
               <p class = "each-date">
@@ -235,7 +235,7 @@ export default () => {
         btnsDelete.forEach((btn) => {
           btn.addEventListener("click", async (e) => {
             e.preventDefault();
-            alert ('¿Estás segura que quieres borrar tu comentario?');
+            confirm ('¿Estás segura que quieres borrar tu comentario?');
             await deletePost(e.target.dataset.id);
           });
         });

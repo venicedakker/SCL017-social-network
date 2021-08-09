@@ -19,9 +19,10 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     // const userInfo = user;
     if (!user.emailVerified) {
+      console.log(user);
       window.location.hash = '#/landing';
     }
-    console.log(user);
+    /* console.log(user); */
   } else {
     window.location.hash = '#/landing';
     console.log(firebaseFunctions.userInfo());
