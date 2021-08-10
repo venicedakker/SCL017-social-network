@@ -2,7 +2,6 @@
 import firebaseFunctions from '../firebase-functions.js';
 
 export default () => {
-  const user = firebaseFunctions.userInfo();
   const feedView = `
   <nav id="navbar-feed">
     <div id="side-nav" >
@@ -137,10 +136,7 @@ export default () => {
           <div id="personalInfo">
             <div id="userInfo"></div>
               <a><img id="profilePic" class="profilePic"></img> </a>
-              <p>
 
-               ${user.displayName}
-              </p>
                            
             </div>
             <div class="textModal">
@@ -300,7 +296,8 @@ export default () => {
       const text = postForm['text-post'];
       if (!editStatus) {
         if (text.value != '') {
-          await savePost(text.value, getDate(), []);
+          const user = firebaseFunctions.userInfo();
+          await savePost(text.value, getDate(), [], {"id": user.uid, "name": user.displayName});
         } else {
           alert('Debes escribir algo para postear');
         }
@@ -327,7 +324,7 @@ export default () => {
               <div clas="each-infoUser">
               <img id="profilePic">
               </img>
-              <p id="infoUser">${post.uid} dice: 
+              <p id="infoUser">${post.user.name} dice: 
               
               </p>
               <p class = "each-date">
@@ -353,9 +350,11 @@ export default () => {
           btn.addEventListener('click', async (e) => {
             e.preventDefault();
 
-            confirm('¿Estás segura que quieres borrar tu comentario?');
-
-            await deletePost(e.target.dataset.id);
+           const confirmDelete = confirm('¿Estás segura que quieres borrar tu comentario?');
+if (confirmDelete){
+  await deletePost(e.target.dataset.id);
+}
+            
           });
         });
 

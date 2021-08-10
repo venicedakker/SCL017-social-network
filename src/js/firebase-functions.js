@@ -69,7 +69,7 @@ const firebaseFunctions = {
     const user = firebase.auth().currentUser;
     console.log(user);
     if (user != null) {
-      return user1;
+      return user;
     } else {
       return 'no hay usuario';
     }
