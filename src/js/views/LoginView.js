@@ -35,7 +35,7 @@ export default () => {
   const googleButton = loginElement.querySelector('#loginGoogle');
   googleButton.addEventListener('click', () => {
     firebaseFunctions.googleLogin();
-    window.location.hash = '#/feed';
+    //window.location.hash = '#/feed';
   });
 
   // funcionalidad del login sin google

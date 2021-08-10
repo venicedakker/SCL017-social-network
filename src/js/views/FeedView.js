@@ -138,8 +138,10 @@ export default () => {
             <div id="userInfo"></div>
               <a><img id="profilePic" class="profilePic"></img> </a>
               <p>
-               ${user}
-              </p>           
+
+               ${user.displayName}
+              </p>
+                           
             </div>
             <div class="textModal">
               <div class="input-field">
@@ -171,6 +173,7 @@ export default () => {
 
   const post = document.createElement('section');
   post.id = 'post-section';
+
   post.innerHTML = feedView;
 
   // -----------------------------------------------------------
@@ -324,7 +327,7 @@ export default () => {
               <div clas="each-infoUser">
               <img id="profilePic">
               </img>
-              <p id="infoUser">${user} dice: 
+              <p id="infoUser">${post.uid} dice: 
               
               </p>
               <p class = "each-date">

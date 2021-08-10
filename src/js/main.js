@@ -17,9 +17,11 @@ window.addEventListener('hashchange', () => {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     if (!user.emailVerified) {
+      console.log(user);
       window.location.hash = '#/landing';
     }
     // console.log(user);
+
   } else {
     window.location.hash = '#/landing';
     // console.log(firebaseFunctions.userInfo());
