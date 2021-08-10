@@ -28,13 +28,13 @@ function someStyling(path, footer, titleDoc) {
       break;
     case '/feed':
       footer.style.display = 'none';
-      titleDoc.innerHTML = 'Feed - Laboratoria Students';
+      titleDoc.innerHTML = 'Feed - Laboratoria Students';      
+
       break;
     case '/profile':
       footer.style.display = 'none';
       titleDoc.innerHTML = 'Profile - Laboratoria Students';
       break;    
   }
-
 }
 export { someStyling };

@@ -6,18 +6,18 @@ export default () => {
          <div class="container">
                 <form id="login-form" action="#/feed" method="post">
                     <h1 class="title-form">Log in</h1>
-                    <input class="input-data" type="email" id="login-email" placeholder="Enter Email" required>
-                    <input class="input-data" type="password" id="login-password" placeholder="Enter Password" required>
-                    <button class="action-btn" type="submit" id="login-btn">LOGIN</button>
+                    <input class="input-data" type="email" id="login-email" placeholder="Ingresa tu Email" required>
+                    <input class="input-data" type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+                    <button class="action-btn" type="submit" id="login-btn">Ingresa</button>
                 </form>
 
                 <div id="break-section">
                     <div class="line">&nbsp;</div>
-                    <div class="or">Or</div>
+                    <div class="or">O</div>
                     <div class="line">&nbsp;</div>
                 </div>
                 
-                <button class="action-google" href="#" type="button" id="loginGoogle"> <span> LOGIN WITH </span> 
+                <button class="action-google" href="#" type="button" id="loginGoogle"> <span> Ingresa con </span> 
                     <img class="img-google" src="./css/img_app/google.png" alt="google"> <span> OOGLE </span></button>
                 <h3 class="enter"> ¿No tienes cuenta? 
                 <a href="#/register" id="link-redirect"> Registrate aquí </a>

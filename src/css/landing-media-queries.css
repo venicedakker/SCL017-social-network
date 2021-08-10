@@ -1,5 +1,4 @@
 @media all and (min-width: 1024px) {
-
   /* login - register button */
   #navbar {
     position: relative;
@@ -27,8 +26,7 @@
     position: fixed;
     left:5%;
     top: 36%;
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat;  
  }
   .logo {
     width: 15%;
@@ -51,13 +49,13 @@
   footer {
     position: fixed;
     top: 96%;
-    font-size: 20px;
+    font-size: 2em;
     overflow: hidden;
   }
 
 
   #slider{
-    /* top: 50%; */
+    /* top: 100%; */
     padding-left: 35%;
   }
 

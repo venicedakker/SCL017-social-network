@@ -28,10 +28,7 @@ export default () => {
                       <div class="figure-div"> <div class="green-circle"><h2 class="text-circle">Cuadro cinco</h2> </div> </div>
                   </figure>
               </div>
-                
-            
-
-        </main>
+             </main>
         `;
 
   const landingElement = document.createElement('section');

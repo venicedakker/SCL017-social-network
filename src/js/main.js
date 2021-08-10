@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 import { someStyling } from './style-manager.js';
 import { router } from './router.js';
 import firebaseFunctions from './firebase-functions.js';
@@ -14,32 +14,16 @@ window.addEventListener('hashchange', () => {
 });
 
 // Get change when it goes inside the page (posts feed)
-const auth = firebase.auth();
-auth.onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    // const userInfo = user;
     if (!user.emailVerified) {
       console.log(user);
       window.location.hash = '#/landing';
     }
-    /* console.log(user); */
+    // console.log(user);
+
   } else {
     window.location.hash = '#/landing';
-    console.log(firebaseFunctions.userInfo());
+    // console.log(firebaseFunctions.userInfo());
   }
 });
-
-//  export const obs = () => {
-//   auth.onAuthStateChanged((user) => {
-//     if (user) {
-//       return user;
-//     } else {
-//       window.location.hash = '#/landing';
-//       console.log(firebaseFunctions.userInfo());
-//     }
-//   });
-// }
-// // obtengo los valores de la coleccion usuario
-// // const getUsers = () => firebase.firestore().collection('users').get();
-
-//---------------------------------------------------------------------------------
