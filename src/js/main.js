@@ -1,29 +1,29 @@
-// const google = document.getElementById("register-google");
-// const form = document.getElementById("formulario-registro-google");
+/* eslint-disable */
+import { someStyling } from './style-manager.js';
+import { router } from './router.js';
+import firebaseFunctions from './firebase-functions.js';
 
-// google.addEventListener('click', () => {
-//     form.style.display = 'block';
-// });
+// Manejo de las rutas
+router();
 
-
-
-const googleButton = document.getElementById("login-google");
-
-const provider = new firebase.auth.GoogleAuthProvider();
-
-googleButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            console.log("entro con google");
-        }).catch((error) => {
-            console.log(error)
-        });
+// cambio de algunos stilos con js
+window.addEventListener('hashchange', () => {
+  const footer = document.querySelector('footer');
+  const title = document.querySelector('title');
+  someStyling(window.location.pathname, footer, title);
 });
 
+// Get change when it goes inside the page (posts feed)
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    if (!user.emailVerified) {
+      console.log(user);
+      window.location.hash = '#/landing';
+    }
+    // console.log(user);
 
-
-
-
+  } else {
+    window.location.hash = '#/landing';
+    // console.log(firebaseFunctions.userInfo());
+  }
+});
